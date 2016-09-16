@@ -53,7 +53,7 @@ public class KorttipakkaTest {
     
     @Test
     public void korttiPakkaanEiVoiTullaLiianVahanKortteja(){
-        Korttipakka kp = new Korttipakka(-1);
+        Korttipakka kp = new Korttipakka(0);
         
         assertEquals(2, kp.parienMaara());
     }

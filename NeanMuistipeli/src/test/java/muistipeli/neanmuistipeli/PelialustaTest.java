@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class PelialustaTest {
     
+    //EN tehnyt tänne vielä testejä, sillä pelialusta muuttuu oletettavasti vielä paljonkin.
+    
     public PelialustaTest() {
     }
     
