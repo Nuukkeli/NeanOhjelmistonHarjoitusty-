@@ -10,7 +10,7 @@ public class Pelialusta {
     
     public Pelialusta(Korttipakka korttipakka){
         this.pakka = korttipakka;
-        this.kortteja = pakka.korttienMaara();
+        this.kortteja = 2*pakka.parienMaara();
     }
     
     public void tulostaAlusta(){
