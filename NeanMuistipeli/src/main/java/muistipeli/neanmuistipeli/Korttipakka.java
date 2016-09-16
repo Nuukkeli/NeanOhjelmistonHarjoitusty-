@@ -39,7 +39,7 @@ public class Korttipakka {
         return kortit.get(sijainti);
     }
     
-    public int korttienMaara(){
-        return pareja*2;
+    public int parienMaara(){
+        return pareja;
     }
 }
