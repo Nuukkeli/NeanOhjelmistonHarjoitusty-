@@ -79,4 +79,6 @@ public class KorttiTest {
         kortti.loydettiin();
         assertEquals(true, kortti.onkoLoydetty());
     }
+    
+    
 }
