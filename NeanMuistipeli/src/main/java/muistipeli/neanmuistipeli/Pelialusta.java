@@ -18,11 +18,11 @@ public class Pelialusta {
         if(kortteja <= 6){
             kortitAlustaan(kortteja/2);
             
-        } else if (kortteja > 6 && kortteja <= 12){
+        } else if (kortteja > 6 && kortteja <= 16){
             kortitAlustaan(4);
             
         } else {
-            System.out.println("Liikaa kortteja"); //Korttipakkaan luodaan myöhemmin max määrä kortteja (oletettavasti 16)
+            System.out.println("Kortteja määrä väärä!");
         }
         
         System.out.println("");
