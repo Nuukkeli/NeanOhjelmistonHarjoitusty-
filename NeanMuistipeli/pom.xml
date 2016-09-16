@@ -38,10 +38,10 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>muistipeli.neanmuistipeli.peli.*</param>
+                        <param>muistipeli.neanmuistipeli.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>muistipeli.neanmuistipeli.peli.*</param>
+                        <param>muistipeli.neanmuistipeli.*</param>
                     </targetTests>
                 </configuration>
             </plugin>
