@@ -10,7 +10,8 @@ public class PeliMain {
         // Ei vielä juuri mitään lopulliseen peliin liittyvää.
         
         //Luokan Kortti toiminnan kokeilua
-        Kortti kortti = new Kortti(5);
+        
+        /*Kortti kortti = new Kortti(5);
         System.out.println(kortti.arvo());
         System.out.println(kortti.onkoLoydetty());
         System.out.println(kortti.nakyykoKuva());
@@ -46,6 +47,27 @@ public class PeliMain {
             System.out.println(k.nakyykoKuva());
             System.out.println(k.onkoLoydetty());
         }
+        
+        System.out.println("Kortteja pakassa: " + pakka.korttienMaara());*/
+        
+        Korttipakka pakka = new Korttipakka(6);
+        Pelialusta alusta = new Pelialusta(pakka);
+        
+        alusta.tulostaAlusta();
+        
+        for(Kortti k : pakka.kortit()){
+            Kortti b = pakka.kortit().get(1);
+            int a = b.arvo();
+            
+            if(k.arvo() == a && pakka.kortit().indexOf(k) != 1){
+                k.loydettiin();
+                b.loydettiin();
+                k.kuvaNakyviin();
+                b.kuvaNakyviin();
+            }
+        }
+        
+        alusta.tulostaAlusta();
     }
     
 }
