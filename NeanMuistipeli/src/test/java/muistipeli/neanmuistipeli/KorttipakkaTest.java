@@ -5,6 +5,7 @@
  */
 package muistipeli.neanmuistipeli;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,6 +18,7 @@ import static org.junit.Assert.*;
  * @author euro
  */
 public class KorttipakkaTest {
+    Korttipakka pakka;
     
     public KorttipakkaTest() {
     }
@@ -31,6 +33,7 @@ public class KorttipakkaTest {
     
     @Before
     public void setUp() {
+        pakka = new Korttipakka(4);
     }
     
     @After
@@ -42,4 +45,49 @@ public class KorttipakkaTest {
     //
     // @Test
     // public void hello() {}
+    
+    @Test //Tätä olisi varmasti hyvä testata, mutten vielä tiedä miten
+    public void korttipakkaSisaltaaKaikkiaArvojaKaksiKpl() {
+    
+    }
+    
+    @Test
+    public void kaantyvatkoKaikkiKortitPiiloonKunYhtakaanEiOleLoydetty(){
+        boolean jokinKuvaNakyy = false;
+        
+        pakka.kortit().get(0).kuvaNakyviin();
+        pakka.kortit.get(pakka.parienMaara()).kuvaNakyviin();
+        pakka.kortit.get(pakka.parienMaara()).kuvaNakyviin();
+        
+        pakka.kaannaKortit();
+        
+        for(Kortti k : pakka.kortit()){
+            if(k.nakyykoKuva()){
+                jokinKuvaNakyy = true;
+                break;
+            }
+        }
+        
+        assertEquals(false, jokinKuvaNakyy);
+    }
+    
+    @Test
+    public void kaantyvatkoVainLoytamattomatKortitPiiloon(){
+        boolean jokinKuvaNakyy = false;
+        
+        pakka.kortit().get(0).loydettiin();
+        pakka.kortit.get(pakka.parienMaara()).kuvaNakyviin();
+        pakka.kortit.get(pakka.parienMaara()).kuvaNakyviin();
+        
+        pakka.kaannaKortit();
+        
+        for(Kortti k : pakka.kortit()){
+            if(k.nakyykoKuva() && !k.onkoLoydetty()){
+                jokinKuvaNakyy = true;
+                break;
+            }
+        }
+        
+        assertEquals(false, jokinKuvaNakyy);
+    }
 }
