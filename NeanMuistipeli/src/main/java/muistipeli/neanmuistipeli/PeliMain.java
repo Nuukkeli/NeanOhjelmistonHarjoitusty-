@@ -50,7 +50,7 @@ public class PeliMain {
         
         System.out.println("Kortteja pakassa: " + pakka.korttienMaara());*/
         
-        Korttipakka pakka = new Korttipakka(6);
+        Korttipakka pakka = new Korttipakka(0);
         Pelialusta alusta = new Pelialusta(pakka);
         
         alusta.tulostaAlusta();
