@@ -55,6 +55,7 @@ public class PeliMain {
         
         alusta.tulostaAlusta();
         
+        //Seuraavaa pätkää voi hyödyntää jossain tulevassa luokassa, kun selvitetään ovatko kortit pareja
         for(Kortti k : pakka.kortit()){
             Kortti b = pakka.kortit().get(1);
             int a = b.arvo();
