@@ -17,24 +17,23 @@ import static org.junit.Assert.*;
  * @author euro
  */
 public class PelialustaTest {
-    
+
     //EN tehnyt tänne vielä testejä, sillä pelialusta muuttuu oletettavasti vielä paljonkin.
-    
     public PelialustaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }

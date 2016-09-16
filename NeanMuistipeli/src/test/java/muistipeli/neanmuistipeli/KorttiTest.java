@@ -17,25 +17,25 @@ import static org.junit.Assert.*;
  * @author euro
  */
 public class KorttiTest {
-    
+
     Kortti kortti;
-    
+
     public KorttiTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         kortti = new Kortti(1);
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -45,40 +45,38 @@ public class KorttiTest {
     //
     // @Test
     // public void hello() {}
-    
     @Test
-    public void konstruktoriLuoKortinArvonOikein(){
+    public void konstruktoriLuoKortinArvonOikein() {
         assertEquals(1, kortti.arvo());
     }
-    
+
     @Test
-    public void konstruktoriLuoKortinNakyvyydenOikein(){
+    public void konstruktoriLuoKortinNakyvyydenOikein() {
         assertEquals(false, kortti.nakyykoKuva());
     }
-    
+
     @Test
-    public void konstruktoriKorttiEiVielaLoydetty(){
+    public void konstruktoriKorttiEiVielaLoydetty() {
         assertEquals(false, kortti.onkoLoydetty());
     }
-    
-    @Test 
-    public void kuvaNakyviinKaantaaKuvanNakyviin(){
+
+    @Test
+    public void kuvaNakyviinKaantaaKuvanNakyviin() {
         kortti.kuvaNakyviin();
         assertEquals(true, kortti.nakyykoKuva());
     }
-    
+
     @Test
-    public void kuvaPiiloonPiilottaaKuvan(){
+    public void kuvaPiiloonPiilottaaKuvan() {
         kortti.kuvaNakyviin();
         kortti.kuvaPiiloon();
         assertEquals(false, kortti.nakyykoKuva());
     }
-    
+
     @Test
-    public void loydettyAsettaaKortinLoydetyksi(){
+    public void loydettyAsettaaKortinLoydetyksi() {
         kortti.loydettiin();
         assertEquals(true, kortti.onkoLoydetty());
     }
-    
-    
+
 }
