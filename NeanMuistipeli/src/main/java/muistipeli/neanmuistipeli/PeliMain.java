@@ -1,22 +1,51 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package muistipeli.neanmuistipeli;
-/**
- *
- * @author euro
- */
+
 public class PeliMain {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Peli peli = new Peli();
-        peli.aloitaPeli();
+        // Ei vielä juuri mitään lopulliseen peliin liittyvää.
+        
+        //Luokan Kortti toiminnan kokeilua
+        Kortti kortti = new Kortti(5);
+        System.out.println(kortti.arvo());
+        System.out.println(kortti.onkoLoydetty());
+        System.out.println(kortti.nakyykoKuva());
+        
+        kortti.kuvaNakyviin();
+        System.out.println(kortti.nakyykoKuva());
+        
+        kortti.kuvaPiiloon();
+        System.out.println(kortti.nakyykoKuva());
+        
+        kortti.loydettiin();
+        System.out.println(kortti.onkoLoydetty());
+        
+        //Luokan Korttipakka toiminnan kokeilua
+        Korttipakka pakka = new Korttipakka(5);
+        
+        for(Kortti k : pakka.kortit()){
+            Kortti b = pakka.kortit().get(1);
+            int a = b.arvo();
+            
+            if(k.arvo() == a && pakka.kortit().indexOf(k) != 1){
+                k.loydettiin();
+                b.loydettiin();
+                k.kuvaNakyviin();
+                b.kuvaNakyviin();
+            }
+        }
+        
+        pakka.kaannaKortit();
+        
+        for(Kortti k : pakka.kortit){
+            System.out.println("Kortti " + k.arvo());
+            System.out.println(k.nakyykoKuva());
+            System.out.println(k.onkoLoydetty());
+        }
     }
     
 }
