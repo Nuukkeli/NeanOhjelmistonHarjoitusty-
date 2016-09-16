@@ -1,17 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package muistipeli.neanmuistipeli;
 
-/**
- *
- * @author euro
- */
+//TÄMÄ LUOKKA MUUTTUU PALJON SIIRRYTTÄESSÄ POIS PELKÄSTÄ TEKSTISTÄ. Hieman ajatusta tähän vain hain.
+
 public class Pelialusta {
     private Korttipakka pakka;
     private int kortteja;
+    
     
     public Pelialusta(Korttipakka korttipakka){
         this.pakka = korttipakka;
