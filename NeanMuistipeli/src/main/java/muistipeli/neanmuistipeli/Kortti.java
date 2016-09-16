@@ -35,5 +35,6 @@ public class Kortti {
     
     public void loydettiin(){
         this.loydetty = true;
+        this.kuvaNakyvissa = true;
     }
 }
