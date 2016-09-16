@@ -9,7 +9,7 @@ public class Korttipakka {
     private int pareja; //Vakiomäärä vai valittava? Ja tarvitaanko muualla kuin luokan alustuksessa? 
     
     public Korttipakka(int pareja){
-        this.pareja = pareja; 
+        this.pareja = pareja; //Luodaan pareille min ja max määrät myöhemmin 
         
         for(int i = 1; i <= pareja ; i++){
             Kortti ekaKortti = new Kortti(i);
@@ -38,5 +38,8 @@ public class Korttipakka {
     public Kortti korttiSijainnilla(int sijainti){
         return kortit.get(sijainti);
     }
-
+    
+    public int korttienMaara(){
+        return pareja*2;
+    }
 }
