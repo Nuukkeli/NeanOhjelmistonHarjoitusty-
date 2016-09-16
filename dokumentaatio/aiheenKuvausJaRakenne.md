@@ -10,7 +10,7 @@ Peliä voi pelata yksin aikaa vastaan tai kaverin kanssa.
 vuorolla, pelin voittaminen (tai häviäminen), pelin lopetus. Kaikilla 
 käyttäjillä on aina samat toiminnot.
 
-![Alt text](dokumentaatio/ekaLuokkakaavio.jpg)
+![Alt text](dokumentaatio/ekaLuokkakaavio.html)
 
 
 
