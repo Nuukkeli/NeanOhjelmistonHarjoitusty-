@@ -6,6 +6,7 @@
 package muistipeli.neanmuistipeli;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -40,11 +41,8 @@ public class KorttipakkaTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    //Kaikkia metodeja ei testattu. Listan testaaminen vähän hakusessa. 
+    //Testeille on tehty kyllä otsikoita, mutta sisältö puuttuu.
     
     @Test //Tätä olisi varmasti hyvä testata, mutten vielä tiedä miten
     public void korttipakkaSisaltaaKaikkiaArvojaKaksiKpl() {
@@ -90,4 +88,10 @@ public class KorttipakkaTest {
         
         assertEquals(false, jokinKuvaNakyy);
     }
+    
+    @Test
+    public void korttiSijainnillaPalauttaaKortin(){
+        
+    }
+    
 }
