@@ -44,9 +44,18 @@ public class KorttipakkaTest {
     //Kaikkia metodeja ei testattu. Listan testaaminen vähän hakusessa. 
     //Testeille on tehty kyllä otsikoita, mutta sisältö puuttuu.
     
-    @Test //Tätä olisi varmasti hyvä testata, mutten vielä tiedä miten
-    public void korttipakkaSisaltaaKaikkiaArvojaKaksiKpl() {
+    @Test
+    public void korttipakkaanEiVoiTullaLiikaaKortteja(){
+        Korttipakka kp = new Korttipakka(32);
+        
+        assertEquals(8, kp.parienMaara());
+    }
     
+    @Test
+    public void korttiPakkaanEiVoiTullaLiianVahanKortteja(){
+        Korttipakka kp = new Korttipakka(-1);
+        
+        assertEquals(2, kp.parienMaara());
     }
     
     @Test
@@ -89,9 +98,16 @@ public class KorttipakkaTest {
         assertEquals(false, jokinKuvaNakyy);
     }
     
-    @Test
+    
+    @Test //Tätä olisi varmasti hyvä testata, mutten vielä tiedä miten
+    public void korttipakkaSisaltaaKaikkiaArvojaKaksiKpl() {
+    
+    }
+    
+    @Test //Myöhemmin
     public void korttiSijainnillaPalauttaaKortin(){
         
     }
+    
     
 }
