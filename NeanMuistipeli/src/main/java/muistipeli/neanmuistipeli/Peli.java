@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package muistipeli.neanmuistipeli;
 
 import java.util.Scanner;
 
-/**
- *
- * @author euro
- */
 public class Peli {
     
     private Pelialusta alusta;
