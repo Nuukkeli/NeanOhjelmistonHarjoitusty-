@@ -49,4 +49,27 @@ public class Korttipakka {
     public int parienMaara() {
         return this.pareja;
     }
+    
+    public boolean onkoKaikkiLoytynyt(){
+        
+        boolean kaikkiLoytynyt = true;
+        
+        for(Kortti k : kortit){
+            if(!k.onkoLoydetty()){
+                kaikkiLoytynyt = false;
+                break;
+            }
+        }
+        
+        return kaikkiLoytynyt;
+    }
+    
+    public boolean ovatkoPari(Kortti eka, Kortti toka){
+        
+        if(eka.arvo() == toka.arvo()){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
