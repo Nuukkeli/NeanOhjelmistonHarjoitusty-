@@ -113,6 +113,16 @@ public class KorttipakkaTest {
         
         assertEquals(false, pakka.ovatkoPari(eka, toka));
     }
+    
+    @Test
+    public void onkoKaikkiLoytynytPalauttaaTrueJosKaikkiOnLoytynyt(){
+        
+        for(Kortti k : pakka.kortit()){
+            k.loydettiin();
+        }
+        
+        assertEquals(true, pakka.onkoKaikkiLoytynyt());
+    }
 
     @Test //Tätä olisi varmasti hyvä testata, mutten vielä tiedä miten
     public void korttipakkaSisaltaaKaikkiaArvojaKaksiKpl() {
