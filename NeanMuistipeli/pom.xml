@@ -39,10 +39,10 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>muistipeli.neanmuistipeli.*</param>
+                        <param>muistipeli.neanmuistipeli.kortti*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>muistipeli.neanmuistipeli.*</param>
+                        <param>muistipeli.neanmuistipeli.kortti*</param>
                     </targetTests>
                 </configuration>
             </plugin>
