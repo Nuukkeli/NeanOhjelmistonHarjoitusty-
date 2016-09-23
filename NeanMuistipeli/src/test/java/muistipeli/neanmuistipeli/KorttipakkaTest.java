@@ -64,7 +64,7 @@ public class KorttipakkaTest {
 
         pakka.kortit().get(0).kuvaNakyviin();
         pakka.kortit.get(pakka.parienMaara()).kuvaNakyviin();
-        pakka.kortit.get(pakka.parienMaara()).kuvaNakyviin();
+        pakka.kortit.get(pakka.parienMaara() - 1).kuvaNakyviin();
 
         pakka.kaannaKortit();
 
@@ -80,22 +80,22 @@ public class KorttipakkaTest {
 
     @Test
     public void kaantyvatkoVainLoytamattomatKortitPiiloon() {
-        boolean jokinKuvaNakyy = false;
+        boolean loytamattomiaNakyy = false;
 
         pakka.kortit().get(0).loydettiin();
         pakka.kortit.get(pakka.parienMaara()).kuvaNakyviin();
-        pakka.kortit.get(pakka.parienMaara()).kuvaNakyviin();
+        pakka.kortit.get(pakka.parienMaara() - 1).kuvaNakyviin();
 
         pakka.kaannaKortit();
 
         for (Kortti k : pakka.kortit()) {
             if (k.nakyykoKuva() && !k.onkoLoydetty()) {
-                jokinKuvaNakyy = true;
+                loytamattomiaNakyy = true;
                 break;
             }
         }
 
-        assertEquals(false, jokinKuvaNakyy);
+        assertEquals(false, loytamattomiaNakyy);
     }
     
     @Test
@@ -126,11 +126,6 @@ public class KorttipakkaTest {
 
     @Test //Tätä olisi varmasti hyvä testata, mutten vielä tiedä miten
     public void korttipakkaSisaltaaKaikkiaArvojaKaksiKpl() {
-
-    }
-
-    @Test //Myöhemmin
-    public void korttiSijainnillaPalauttaaKortin() {
 
     }
 

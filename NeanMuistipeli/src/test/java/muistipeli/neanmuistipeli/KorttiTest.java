@@ -78,5 +78,11 @@ public class KorttiTest {
         kortti.loydettiin();
         assertEquals(true, kortti.onkoLoydetty());
     }
+    
+    @Test
+    public void loydettyKorttiOnMyosNakyva(){
+        kortti.loydettiin();
+        assertEquals(true, kortti.nakyykoKuva());
+    }
 
 }
