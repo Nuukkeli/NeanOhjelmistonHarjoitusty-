@@ -18,6 +18,9 @@ import static org.junit.Assert.*;
  */
 public class PeliTest {
 
+    //Testejä melko vähän. Luokka muuttuu käyttöliittymän myötä. 
+    //Peli tehty valmiiksi vain, jotta ajatus muistipelin toiminnasta ja 
+    //vaatimista huomioista selkiytyy.
     Peli peli;
 
     public PeliTest() {
@@ -39,15 +42,22 @@ public class PeliTest {
     @After
     public void tearDown() {
     }
-    
+
     @Test
-    public void peliLoppuuJosPelaajaSyottaaLiianPienenLuvun(){
+    public void peliLoppuuJosPelaajaSyottaaLiianPienenLuvun() {
         assertTrue(peli.lopeta(0));
     }
-    
+
     @Test
-    public void peliLoppuuJosPelaajaSyottaaLiianIsonLuvun(){
+    public void peliLoppuuJosPelaajaSyottaaLiianIsonLuvun() {
         assertTrue(peli.lopeta(7));
+    }
+
+    //Tätä olisi hyvä testata. Syötteet testeissä hieman epäselviä. 
+    //Selvitän asian seuraaville viikoille.
+    @Test
+    public void peliTunnistaaJosKorttiOnJoLoydettyEikaAnnaKaantaaSita() {
+
     }
 
 }
