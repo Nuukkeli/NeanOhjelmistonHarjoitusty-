@@ -1,7 +1,7 @@
 
 package muistipeli.neanmuistipeli;
 
-//TÄMÄ LUOKKA MUUTTUU PALJON SIIRRYTTÄESSÄ POIS PELKÄSTÄ TEKSTISTÄ. Hieman ajatusta tähän vain hain.
+//TÄMÄ LUOKKA MUUTTUU PALJON SIIRRYTTÄESSÄ KÄYTTÖLIITTYMÄÄN.
 public class Pelialusta {
 
     private Korttipakka pakka;
@@ -17,12 +17,10 @@ public class Pelialusta {
         if (kortteja <= 6) {
             kortitAlustaan(kortteja / 2);
 
-        } else if (kortteja > 6 && kortteja <= 16) {
+        } else {
             kortitAlustaan(4);
 
-        } else {
-            System.out.println("Kortteja määrä väärä!");
-        }
+        } 
 
         System.out.println("");
     }
