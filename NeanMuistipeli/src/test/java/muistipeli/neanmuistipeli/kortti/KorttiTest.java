@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package muistipeli.neanmuistipeli;
+package muistipeli.neanmuistipeli.kortti;
 
+import muistipeli.neanmuistipeli.kortti.Kortti;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -1,5 +1,7 @@
-package muistipeli.neanmuistipeli;
+package muistipeli.neanmuistipeli.peli;
 
+import muistipeli.neanmuistipeli.kortti.Korttipakka;
+import muistipeli.neanmuistipeli.kortti.Kortti;
 import java.util.Scanner;
 
 public class Peli {
@@ -14,7 +16,6 @@ public class Peli {
         lukija = new Scanner(System.in);
     }
 
-    
     //Tässä vielä hieman toistoa. Yritän poistaa sitä myöhemmin.
     public void pelaa() {
 
@@ -27,13 +28,12 @@ public class Peli {
 
             System.out.println("Käännä ensimmäinen kortti");
             int eka = Integer.parseInt(lukija.nextLine());
-            
 
             if (lopeta(eka)) {
                 break;
             }
 
-            Kortti ekaKortti = onkoKorttiJoLoydetty(pakka.korttiSijainnilla(eka));
+            Kortti ekaKortti = voikoKortinKaantaa(pakka.korttiSijainnilla(eka));
             ekaKortti.kuvaNakyviin();
             alusta.tulostaAlusta();
 
@@ -44,8 +44,7 @@ public class Peli {
                 break;
             }
 
-            
-            Kortti tokaKortti = onkoKorttiJoLoydetty(pakka.korttiSijainnilla(toka));
+            Kortti tokaKortti = voikoKortinKaantaa(pakka.korttiSijainnilla(toka));
             tokaKortti.kuvaNakyviin();
             alusta.tulostaAlusta();
 
@@ -65,7 +64,7 @@ public class Peli {
 
     }
 
-    private boolean lopeta(int num) {
+    public boolean lopeta(int num) {
         if (num < 1 || num > pakka.parienMaara() * 2) {
             System.out.println("Lopetetaan");
             return true;
@@ -73,15 +72,15 @@ public class Peli {
             return false;
         }
     }
-    
-    private Kortti onkoKorttiJoLoydetty(Kortti kortti){
-        
-        while(kortti.onkoLoydetty()){
-            System.out.println("Kortti on jo löydetty. Käännä toinen kortti.");
+
+    public Kortti voikoKortinKaantaa(Kortti kortti) {
+
+        while (kortti.onkoLoydetty() || kortti.nakyykoKuva()) {
+            System.out.println("Korttia ei voi kääntää. Käännä toinen kortti.");
             int uusi = Integer.parseInt(lukija.nextLine());
             kortti = pakka.korttiSijainnilla(uusi);
         }
-        
+
         return kortti;
     }
 

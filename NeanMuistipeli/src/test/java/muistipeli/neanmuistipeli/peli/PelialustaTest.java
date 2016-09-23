@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package muistipeli.neanmuistipeli;
+package muistipeli.neanmuistipeli.peli;
 
+import muistipeli.neanmuistipeli.peli.Pelialusta;
+import muistipeli.neanmuistipeli.kortti.Korttipakka;
+import muistipeli.neanmuistipeli.kortti.Kortti;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Collections;

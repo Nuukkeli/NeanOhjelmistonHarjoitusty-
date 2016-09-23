@@ -1,4 +1,4 @@
-package muistipeli.neanmuistipeli;
+package muistipeli.neanmuistipeli.kortti;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,35 +41,41 @@ public class Korttipakka {
         }
     }
 
-    
     public Kortti korttiSijainnilla(int sijainti) {
         return kortit.get(sijainti - 1);
+    }
+
+    //En ole varma tarvitseeko tätä lopulta
+    public int kortinSijainti(Kortti kortti) {
+        int sijainti = kortit.indexOf(kortti) + 1;
+        return sijainti;
     }
 
     public int parienMaara() {
         return this.pareja;
     }
-    
-    public boolean onkoKaikkiLoytynyt(){
-        
+
+    public boolean onkoKaikkiLoytynyt() {
+
         boolean kaikkiLoytynyt = true;
-        
-        for(Kortti k : kortit){
-            if(!k.onkoLoydetty()){
+
+        for (Kortti k : kortit) {
+            if (!k.onkoLoydetty()) {
                 kaikkiLoytynyt = false;
                 break;
             }
         }
-        
+
         return kaikkiLoytynyt;
     }
-    
-    public boolean ovatkoPari(Kortti eka, Kortti toka){
-        
-        if(eka.arvo() == toka.arvo()){
+
+    public boolean ovatkoPari(Kortti eka, Kortti toka) {
+
+        if (eka.arvo() == toka.arvo()) {
             return true;
         } else {
             return false;
         }
     }
+
 }

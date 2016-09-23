@@ -1,4 +1,4 @@
-package muistipeli.neanmuistipeli;
+package muistipeli.neanmuistipeli.kortti;
 
 public class Kortti {
 

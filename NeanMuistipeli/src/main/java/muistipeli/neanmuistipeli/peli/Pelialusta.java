@@ -1,7 +1,10 @@
-
-package muistipeli.neanmuistipeli;
+package muistipeli.neanmuistipeli.peli;
 
 //TÄMÄ LUOKKA MUUTTUU PALJON SIIRRYTTÄESSÄ KÄYTTÖLIITTYMÄÄN.
+
+import muistipeli.neanmuistipeli.kortti.Korttipakka;
+import muistipeli.neanmuistipeli.kortti.Kortti;
+
 public class Pelialusta {
 
     private Korttipakka pakka;
@@ -20,7 +23,7 @@ public class Pelialusta {
         } else {
             kortitAlustaan(4);
 
-        } 
+        }
 
         System.out.println("");
     }

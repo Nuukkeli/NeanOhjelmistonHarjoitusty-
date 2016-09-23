@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package muistipeli.neanmuistipeli;
+package muistipeli.neanmuistipeli.kortti;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -97,31 +95,39 @@ public class KorttipakkaTest {
 
         assertEquals(false, loytamattomiaNakyy);
     }
-    
+
     @Test
-    public void ovatkoPariTunnistaaJosKortitOvatPari(){
+    public void ovatkoPariTunnistaaJosKortitOvatPari() {
         Kortti eka = new Kortti(1);
         Kortti toka = new Kortti(1);
-        
+
         assertEquals(true, pakka.ovatkoPari(eka, toka));
     }
-    
+
     @Test
-    public void ovatkoPariTunnistaaJosKortitEivatOlePari(){
+    public void ovatkoPariTunnistaaJosKortitEivatOlePari() {
         Kortti eka = new Kortti(10);
         Kortti toka = new Kortti(11);
-        
+
         assertEquals(false, pakka.ovatkoPari(eka, toka));
     }
-    
+
     @Test
-    public void onkoKaikkiLoytynytPalauttaaTrueJosKaikkiOnLoytynyt(){
-        
-        for(Kortti k : pakka.kortit()){
+    public void onkoKaikkiLoytynytPalauttaaTrueJosKaikkiOnLoytynyt() {
+
+        for (Kortti k : pakka.kortit()) {
             k.loydettiin();
         }
-        
+
         assertEquals(true, pakka.onkoKaikkiLoytynyt());
+    }
+
+    @Test
+    public void kortinSijaintiPalauttaaKortinSijainnin() {
+        Kortti k = pakka.kortit().get(pakka.parienMaara() * 2 - 2);
+        int sijainti = pakka.kortinSijainti(k);
+
+        assertEquals(pakka.parienMaara() * 2 - 1, sijainti);
     }
 
     @Test //Tätä olisi varmasti hyvä testata, mutten vielä tiedä miten
