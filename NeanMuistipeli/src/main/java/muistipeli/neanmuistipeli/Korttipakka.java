@@ -41,9 +41,9 @@ public class Korttipakka {
         }
     }
 
-    //Kortin arvolla vai sijainnilla? Alustavasti sijainnilla, koska arvoa ei tiedetä etsittäessä
+    
     public Kortti korttiSijainnilla(int sijainti) {
-        return kortit.get(sijainti);
+        return kortit.get(sijainti - 1);
     }
 
     public int parienMaara() {
