@@ -15,7 +15,7 @@ public class Peli {
     }
 
     
-    //Tässä vielä hieman toista. Yritän poistaa sitä myöhemmin.
+    //Tässä vielä hieman toistoa. Yritän poistaa sitä myöhemmin.
     public void pelaa() {
 
         System.out.println("Pelataan");
@@ -33,8 +33,7 @@ public class Peli {
                 break;
             }
 
-            Kortti ekaKortti = pakka.korttiSijainnilla(eka);
-            onkoKorttiJoLoydetty(ekaKortti);
+            Kortti ekaKortti = onkoKorttiJoLoydetty(pakka.korttiSijainnilla(eka));
             ekaKortti.kuvaNakyviin();
             alusta.tulostaAlusta();
 
@@ -45,9 +44,8 @@ public class Peli {
                 break;
             }
 
-            Kortti tokaKortti = pakka.korttiSijainnilla(toka);
             
-            
+            Kortti tokaKortti = onkoKorttiJoLoydetty(pakka.korttiSijainnilla(toka));
             tokaKortti.kuvaNakyviin();
             alusta.tulostaAlusta();
 
@@ -76,14 +74,15 @@ public class Peli {
         }
     }
     
-    private void onkoKorttiJoLoydetty(Kortti kortti){
-        Kortti apu = kortti;
+    private Kortti onkoKorttiJoLoydetty(Kortti kortti){
         
-        while(apu.onkoLoydetty()){
+        while(kortti.onkoLoydetty()){
             System.out.println("Kortti on jo löydetty. Käännä toinen kortti.");
             int uusi = Integer.parseInt(lukija.nextLine());
-            apu = pakka.korttiSijainnilla(uusi);
+            kortti = pakka.korttiSijainnilla(uusi);
         }
+        
+        return kortti;
     }
 
 }
