@@ -7,6 +7,6 @@ Tavoitteena tehd채 muistipeli, jossa kortteja k채채nt채m채ll채 yritet채채n etsi�
 
 [tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-[pit](https://htmlpreview.github.io/?https://github.com/Nuukkeli/NeanOhjelmoinninHT/tree/master/dokumentaatio/pit/201609231630)
+[pit](https://htmlpreview.github.io/?https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/pit/201609231630/index.html)
 
 [Checkstyle](https://htmlpreview.github.io/?https://github.com/Nuukkeli/NeanOhjelmoinninHT/tree/master/dokumentaatio/site)
