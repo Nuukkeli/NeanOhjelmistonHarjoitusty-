@@ -7,7 +7,7 @@ public class PeliMain {
      */
     public static void main(String[] args) {
 
-        Peli peli = new Peli(8);
+        Peli peli = new Peli(5);
         peli.pelaa();
     }
 
