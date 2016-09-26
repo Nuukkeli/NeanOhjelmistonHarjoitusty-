@@ -33,7 +33,7 @@ public class Peli {
                 break;
             }
 
-            Kortti ekaKortti = voikoKortinKaantaa(pakka.korttiSijainnilla(eka));
+            Kortti ekaKortti = koitaKaantaaKortti(pakka.korttiSijainnilla(eka));
             ekaKortti.kuvaNakyviin();
             alusta.tulostaAlusta();
 
@@ -44,7 +44,7 @@ public class Peli {
                 break;
             }
 
-            Kortti tokaKortti = voikoKortinKaantaa(pakka.korttiSijainnilla(toka));
+            Kortti tokaKortti = koitaKaantaaKortti(pakka.korttiSijainnilla(toka));
             tokaKortti.kuvaNakyviin();
             alusta.tulostaAlusta();
 
@@ -73,11 +73,17 @@ public class Peli {
         }
     }
 
-    public Kortti voikoKortinKaantaa(Kortti kortti) {
+    public Kortti koitaKaantaaKortti(Kortti kortti) {
 
         while (kortti.onkoLoydetty() || kortti.nakyykoKuva()) {
             System.out.println("Korttia ei voi kääntää. Käännä toinen kortti.");
             int uusi = Integer.parseInt(lukija.nextLine());
+            
+            while(uusi < 1 || uusi > pakka.parienMaara()*2){
+                System.out.println("Väärä sijainti. Anna uusi sijainti.");
+                uusi = Integer.parseInt(lukija.nextLine());
+            }
+            
             kortti = pakka.korttiSijainnilla(uusi);
         }
 
