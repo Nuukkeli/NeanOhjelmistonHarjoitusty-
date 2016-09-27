@@ -34,7 +34,13 @@ public class Kayttoliittyma implements Runnable {
         pelilauta.setLayout(new GridLayout(2, 3));
         
         for(Kortti k : pakka.kortit()){
-            String arvo = " " + k.arvo();
+            
+            String arvo = "0";
+            
+            if(k.nakyykoKuva()){
+                arvo = " " + k.arvo();
+            }
+
             pelilauta.add(new JButton(arvo));
         }
         
