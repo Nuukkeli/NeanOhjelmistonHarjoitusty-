@@ -2,11 +2,14 @@ package muistipeli.neanmuistipeli.kortti;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import javax.swing.JButton;
 
 public class Korttipakka {
 
     ArrayList<Kortti> kortit = new ArrayList<>();
     private int pareja; //Vakiomäärä vai valittava? Ja tarvitaanko muualla kuin luokan alustuksessa? 
+    
+    
 
     public Korttipakka(int pareja) {
 
@@ -76,6 +79,27 @@ public class Korttipakka {
         } else {
             return false;
         }
+    }
+    
+    public int montakoKaannetty(){
+        int kaannettyja = 0;
+        
+        for(Kortti k : this.kortit()){
+            
+            if(k.nakyykoKuva() && !k.onkoLoydetty()){
+                kaannettyja++;
+            }
+        }
+        
+        return kaannettyja;
+    }
+    
+    public boolean ovatkoKaannetytPari(){
+        boolean ovatkoPari = false;
+        
+        
+        
+        return ovatkoPari;
     }
 
 }
