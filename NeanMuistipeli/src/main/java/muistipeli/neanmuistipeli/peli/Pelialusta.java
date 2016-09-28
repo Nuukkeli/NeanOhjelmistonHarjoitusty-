@@ -1,54 +1,107 @@
+
 package muistipeli.neanmuistipeli.peli;
 
-//TÄMÄ LUOKKA MUUTTUU PALJON SIIRRYTTÄESSÄ KÄYTTÖLIITTYMÄÄN.
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
+import javax.swing.*;
+import muistipeli.neanmuistipeli.kortti.*;
 
-import muistipeli.neanmuistipeli.kortti.Korttipakka;
-import muistipeli.neanmuistipeli.kortti.Kortti;
-
-public class Pelialusta {
-
-    private Korttipakka pakka;
-    private int kortteja;
-
-    public Pelialusta(Korttipakka korttipakka) {
-        this.pakka = korttipakka;
-        this.kortteja = 2 * pakka.parienMaara();
+public class Pelialusta extends JFrame implements ActionListener {
+    
+    private JFrame ikkuna; 
+    Panel pelilauta;
+    Korttipakka pakka;
+    int kaannettyja;
+    int pareja;
+    JButton[] korttiNappulat;
+    
+    public Pelialusta(int parienMaara){
+        pakka = new Korttipakka(parienMaara);
+        kaannettyja = 0;
+        korttiNappulat = new JButton[parienMaara*2];
     }
 
-    public void tulostaAlusta() {
+    public void pelaa() {
+        ikkuna = new JFrame("Muistipeli");
+        ikkuna.setPreferredSize(new Dimension(500, 500));
 
-        if (kortteja <= 6) {
-            kortitAlustaan(kortteja / 2);
+        ikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
+        luoPelilauta();
+        
+        ikkuna.pack();
+        ikkuna.setVisible(true);
+    }
+    
+    
+    private void luoPelilauta(){
+        pelilauta = new Panel();
+        pelilauta.setLayout(new GridLayout(2,3));
+        
+        for(int i = 0; i < korttiNappulat.length; i++){
+            String arvo = "?";
+            
+            korttiNappulat[i] = new JButton(arvo);
+            
+            korttiNappulat[i].addActionListener(this);
+            pelilauta.add(korttiNappulat[i]);
+        }
+        
+        ikkuna.add(pelilauta);
+    }
 
-        } else {
-            kortitAlustaan(4);
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for (int i = 0; i < korttiNappulat.length; i++) {
 
+            if (korttiNappulat[i] == e.getSource()) {
+                String arvo = "" + pakka.kortit().get(i).arvo();
+                pakka.kortit().get(i).kuvaNakyviin();
+                korttiNappulat[i].setText(arvo);
+                kaannettyja++;
+            }
         }
 
-        System.out.println("");
-    }
+        if (kaannettyja == 2) {
 
-    //Koska kortin arvot ovat tällä hetkellä numeroita, piilossa olevaa arvoa kuvaa 0.
-    public int kortinArvo(Kortti kortti) {
-        if (kortti.nakyykoKuva() || kortti.onkoLoydetty()) {
-            return kortti.arvo();
-        } else {
-            return 0;
-        }
-    }
+            if (pakka.ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat()) {
+                pareja++;
+                piilotaKaikkiKortitJoitaEiOleLoydetty();
+                kaannettyja = 0;
 
-    private void kortitAlustaan(int rivinPituus) {
-        int i = 1;
+                if (pakka.onkoKaikkiLoytynyt()) {
+                    kaikkiLoytyivat();
+                    //System.exit(0);
+                }
 
-        for (Kortti k : pakka.kortit()) {
-            System.out.print(" " + kortinArvo(k));
+            } else {
+                
+                piilotaKaikkiKortitJoitaEiOleLoydetty();
+                kaannettyja = 0;
 
-            if (i == rivinPituus) {
-                System.out.println("");
-                i = 0;
             }
 
-            i++;
         }
     }
+    
+    public void piilotaKaikkiKortitJoitaEiOleLoydetty(){
+        pakka.kaannaKortit();
+        
+        for(int i = 0; i < korttiNappulat.length ; i++){
+            
+            if(!pakka.kortit().get(i).nakyykoKuva()){
+                korttiNappulat[i].setText("?");
+            }
+            
+        }
+    }
+    
+    public void kaikkiLoytyivat(){
+        for(int i = 0; i < korttiNappulat.length ; i++){
+            korttiNappulat[i].setText("Voitit!!!!! :D:D:D");
+        }
+    }
+
 }
