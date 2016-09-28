@@ -81,25 +81,36 @@ public class Korttipakka {
         }
     }
     
-    public int montakoKaannetty(){
-        int kaannettyja = 0;
+    public boolean ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat(){
+        boolean ovatkoPari = false;
+        Kortti eka = null;
+        Kortti toka = null;
         
-        for(Kortti k : this.kortit()){
+        for(Kortti k : kortit()){
             
             if(k.nakyykoKuva() && !k.onkoLoydetty()){
-                kaannettyja++;
+                eka = k;
+                break;
+            }
+            
+        }
+        
+        for(Kortti k : kortit()){
+            
+            if(k.nakyykoKuva() && !k.onkoLoydetty() && this.kortinSijainti(k) != this.kortinSijainti(eka)){
+                toka = k;
             }
         }
         
-        return kaannettyja;
-    }
-    
-    public boolean ovatkoKaannetytPari(){
-        boolean ovatkoPari = false;
-        
-        
+        if(eka.arvo() == toka.arvo()){
+            ovatkoPari = true;
+            eka.loydettiin();
+            toka.loydettiin();
+        }
         
         return ovatkoPari;
     }
+    
+    
 
 }
