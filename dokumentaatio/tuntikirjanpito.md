@@ -9,5 +9,6 @@ Päivä | Tunnit | Kuvaus
 22.09.2016 | 0.5h | Muutamia testejä 
 23.09.2016 | 5h | Toiminnan toteuttamisen jatkoa, testejä lisää, käyttöliittymän suunnittelua (mutta ei vielä toteutus)
 27.09.2016 | 3h | Käyttöliittymän suunnittelua ja toteutuksen aloitus
+28.09.2016 | 4h | Käyttöliittymän toteutusta
 
 
