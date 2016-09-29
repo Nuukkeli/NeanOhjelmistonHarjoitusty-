@@ -56,11 +56,12 @@ public class Pelialusta extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         for (int i = 0; i < korttiNappulat.length; i++) {
 
-            if (korttiNappulat[i] == e.getSource()) {
+            if (korttiNappulat[i] == e.getSource() && !pakka.kortit().get(i).nakyykoKuva()) {
+                kaannettyja++;
                 String arvo = "" + pakka.kortit().get(i).arvo();
                 pakka.kortit().get(i).kuvaNakyviin();
                 korttiNappulat[i].setText(arvo);
-                kaannettyja++;
+
             }
         }
 
@@ -77,13 +78,14 @@ public class Pelialusta extends JFrame implements ActionListener {
                 }
 
             } else {
-                
+
                 piilotaKaikkiKortitJoitaEiOleLoydetty();
                 kaannettyja = 0;
 
             }
 
         }
+        
     }
     
     public void piilotaKaikkiKortitJoitaEiOleLoydetty(){
