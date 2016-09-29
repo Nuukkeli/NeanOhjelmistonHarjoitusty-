@@ -17,22 +17,23 @@ import static org.junit.Assert.*;
  * @author euro
  */
 public class PelialustaTest {
-    
+
+    //KÄSITIN NYT NIIN ETTÄ KÄYTTÖLIITTYMÄÄ EI TARVITSE TESTATA. TESTILUOKKA POISTUU KUN TILANNE VARMISTUU.
     public PelialustaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }

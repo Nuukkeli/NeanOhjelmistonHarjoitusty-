@@ -8,9 +8,8 @@ public class Korttipakka {
 
     ArrayList<Kortti> kortit = new ArrayList<>();
     private int pareja; //Vakiomäärä vai valittava? Ja tarvitaanko muualla kuin luokan alustuksessa? 
-    
-    
 
+    //Korttipakan konstruktori. Muutetaan mahdollisesti niin, että tietyissä tilanteissa kortit ovat järjestyslukuja.
     public Korttipakka(int pareja) {
 
         if (pareja > 8) {
@@ -32,10 +31,12 @@ public class Korttipakka {
         Collections.shuffle(kortit);
     }
 
+    //Palauttaa listan korteista.
     public ArrayList<Kortti> kortit() {
         return this.kortit;
     }
 
+    //Kääntää kaikki kortit, joita ei ole löydetty.
     public void kaannaKortit() {
         for (Kortti kortti : kortit) {
             if (!kortti.onkoLoydetty()) {
@@ -44,19 +45,23 @@ public class Korttipakka {
         }
     }
 
+    //Palauttaa kortin tietystä sijainnista.
     public Kortti korttiSijainnilla(int sijainti) {
         return kortit.get(sijainti - 1);
     }
 
+    //Palauttaa tietyn kortin sijainnin.
     public int kortinSijainti(Kortti kortti) {
         int sijainti = kortit.indexOf(kortti) + 1;
         return sijainti;
     }
 
+    //Palauttaa parien määrän.
     public int parienMaara() {
         return this.pareja;
     }
 
+    //Kertoo ovatko kaikki kortit löydetty.
     public boolean onkoKaikkiLoytynyt() {
 
         boolean kaikkiLoytynyt = true;
@@ -71,6 +76,7 @@ public class Korttipakka {
         return kaikkiLoytynyt;
     }
 
+    //Kertoo ovatko kortit pari. Mahdollisesti turha metodi, nyt kun peli toimii käyttöliittymässä.
     public boolean ovatkoPari(Kortti eka, Kortti toka) {
 
         if (eka.arvo() == toka.arvo()) {
@@ -79,37 +85,36 @@ public class Korttipakka {
             return false;
         }
     }
-    
-    public boolean ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat(){
+
+    //Kertoo ovatko käännetyt kortit pari.
+    public boolean ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat() {
         boolean ovatkoPari = false;
         Kortti eka = null;
         Kortti toka = null;
-        
-        for(Kortti k : kortit()){
-            
-            if(k.nakyykoKuva() && !k.onkoLoydetty()){
+
+        for (Kortti k : kortit()) {
+
+            if (k.nakyykoKuva() && !k.onkoLoydetty()) {
                 eka = k;
                 break;
             }
-            
+
         }
-        
-        for(Kortti k : kortit()){
-            
-            if(k.nakyykoKuva() && !k.onkoLoydetty() && this.kortinSijainti(k) != this.kortinSijainti(eka)){
+
+        for (Kortti k : kortit()) {
+
+            if (k.nakyykoKuva() && !k.onkoLoydetty() && this.kortinSijainti(k) != this.kortinSijainti(eka)) {
                 toka = k;
             }
         }
-        
-        if(eka.arvo() == toka.arvo()){
+
+        if (eka.arvo() == toka.arvo()) {
             ovatkoPari = true;
             eka.loydettiin();
             toka.loydettiin();
         }
-        
+
         return ovatkoPari;
     }
-    
-    
 
 }

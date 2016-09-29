@@ -1,4 +1,3 @@
-
 package muistipeli.neanmuistipeli.peli;
 
 import java.awt.*;
@@ -25,8 +24,9 @@ public class Pelialusta extends JFrame implements ActionListener {
         korttiNappulat = new JButton[parienMaara * 2];
     }
 
+    //Aloittaa pelin
     public void pelaa() {
-        
+
         ikkuna = new JFrame("Muistipeli");
         ikkuna.setPreferredSize(new Dimension(1000, 1000));
 
@@ -38,6 +38,7 @@ public class Pelialusta extends JFrame implements ActionListener {
         ikkuna.setVisible(true);
     }
 
+    //Luo pelilaudan
     private void luoPelilauta() {
         pakka = new Korttipakka(pareja);
         pelilauta = new Panel();
@@ -57,6 +58,7 @@ public class Pelialusta extends JFrame implements ActionListener {
         ikkuna.add(pelilauta);
     }
 
+    //Määrittää mitä tapahtuu kortteja klikatessa.
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -95,6 +97,7 @@ public class Pelialusta extends JFrame implements ActionListener {
 
     }
 
+    //Piilottaa arvon korteista, joita ei ole löydetty.
     public void piilotaKaikkiKortitJoitaEiOleLoydetty() {
         pakka.kaannaKortit();
 
@@ -107,19 +110,14 @@ public class Pelialusta extends JFrame implements ActionListener {
 
         }
     }
-    
-    public void kaikkiLoytyivat(){
-        for(int i = 0; i < korttiNappulat.length ; i++){
+
+    public void kaikkiLoytyivat() {
+        for (int i = 0; i < korttiNappulat.length; i++) {
             korttiNappulat[i].setFont(new Font("Times New Roman", Font.BOLD, 15));
             korttiNappulat[i].setText("Voitit!!!!! :D:D:D");
-            
+
         }
-        
-        aloitaUusiPeli();
-    }
-    
-    public void aloitaUusiPeli(){
-        pelaa();
+
     }
 
 }
