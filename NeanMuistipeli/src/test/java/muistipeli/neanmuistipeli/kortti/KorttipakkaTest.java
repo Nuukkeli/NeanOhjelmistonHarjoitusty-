@@ -163,5 +163,42 @@ public class KorttipakkaTest {
             assertEquals(n, 2);
         }
     }
+    
+    @Test
+    public void ovatkoKaannetytPariPalauttaaTrueJosKaannetytOvatPari(){
+        Kortti eka = pakka.korttiSijainnilla(1);
+        Kortti toka = pakka.korttiSijainnilla(2);
+
+        for (int i = 1; i < pakka.parienMaara() * 2 - 1; i++) {
+
+            if (eka.arvo() != toka.arvo()) {
+                toka = pakka.korttiSijainnilla(2 + i);
+            }
+        }
+
+        eka.kuvaNakyviin();
+        toka.kuvaNakyviin();
+        
+        assertTrue(pakka.ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat());
+        assertTrue(toka.onkoLoydetty());
+        assertTrue(eka.onkoLoydetty());
+    }
+    
+    @Test
+    public void ovatkoKaannetytPariPalauttaaFalseJosKaannetytEivatOlePari(){
+        Kortti eka = pakka.korttiSijainnilla(1);
+        Kortti toka = pakka.korttiSijainnilla(2);
+        
+        if(eka.arvo() == toka.arvo()){
+            toka = pakka.korttiSijainnilla(3);
+        }
+        
+        eka.kuvaNakyviin();
+        toka.kuvaNakyviin();
+        
+        assertFalse(pakka.ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat());
+        assertFalse(toka.onkoLoydetty());
+        assertFalse(eka.onkoLoydetty());
+    }
 
 }
