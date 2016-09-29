@@ -9,6 +9,9 @@ import java.util.logging.Logger;
 import javax.swing.*;
 import muistipeli.neanmuistipeli.kortti.*;
 
+/**
+ * Luokan konstruktori.
+ */
 public class Pelialusta extends JFrame implements ActionListener {
 
     private JFrame ikkuna;
@@ -24,7 +27,9 @@ public class Pelialusta extends JFrame implements ActionListener {
         korttiNappulat = new JButton[parienMaara * 2];
     }
 
-    //Aloittaa pelin
+    /**
+     * Metodi avaa käyttöliittymän ja aloittaa pelin.
+     */
     public void pelaa() {
 
         ikkuna = new JFrame("Muistipeli");
@@ -38,7 +43,9 @@ public class Pelialusta extends JFrame implements ActionListener {
         ikkuna.setVisible(true);
     }
 
-    //Luo pelilaudan
+    /**
+     * Metodi luo pelilaudalle nappulat.
+     */
     private void luoPelilauta() {
         pakka = new Korttipakka(pareja);
         pelilauta = new Panel();
@@ -58,7 +65,11 @@ public class Pelialusta extends JFrame implements ActionListener {
         ikkuna.add(pelilauta);
     }
 
-    //Määrittää mitä tapahtuu kortteja klikatessa.
+    /**
+     * Metodi luo tapahtuman, kun kortteja (nappeja) klikataan.
+     * 
+     * @param e ActionEvent
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -97,8 +108,10 @@ public class Pelialusta extends JFrame implements ActionListener {
 
     }
 
-    //Piilottaa arvon korteista, joita ei ole löydetty.
-    public void piilotaKaikkiKortitJoitaEiOleLoydetty() {
+    /**
+     * Metodi asettaa kaikkien löytämättömien korttien arvon piiloon.
+     */
+    private void piilotaKaikkiKortitJoitaEiOleLoydetty() {
         pakka.kaannaKortit();
 
         for (int i = 0; i < korttiNappulat.length; i++) {
@@ -110,8 +123,12 @@ public class Pelialusta extends JFrame implements ActionListener {
 
         }
     }
-
-    public void kaikkiLoytyivat() {
+    
+    /**
+     * Metodi asettaa voittotekstin, kun kaikki kortit on löydetty.
+     * Tämä muuttuu varmasti.
+     */
+    private void kaikkiLoytyivat() {
         for (int i = 0; i < korttiNappulat.length; i++) {
             korttiNappulat[i].setFont(new Font("Times New Roman", Font.BOLD, 15));
             korttiNappulat[i].setText("Voitit!!!!! :D:D:D");
