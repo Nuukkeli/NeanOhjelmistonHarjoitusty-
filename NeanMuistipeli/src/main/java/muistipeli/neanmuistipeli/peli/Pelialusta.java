@@ -15,10 +15,10 @@ import muistipeli.neanmuistipeli.kortti.*;
 public class Pelialusta extends JFrame implements ActionListener {
 
     private JFrame ikkuna;
-    Panel pelilauta;
-    Korttipakka pakka;
-    int kaannettyja;
-    int pareja;
+    private Panel pelilauta;
+    private Korttipakka pakka;
+    private int kaannettyja;
+    private int pareja;
     JButton[] korttiNappulat;
 
     public Pelialusta(int parienMaara) {

@@ -14,7 +14,7 @@ package muistipeli.neanmuistipeli.peli;
  */
 public class Peli  {
  
-    Pelialusta alusta;
+    private Pelialusta alusta;
     int pareja;
     
     /**

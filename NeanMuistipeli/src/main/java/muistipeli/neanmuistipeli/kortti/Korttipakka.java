@@ -11,7 +11,7 @@ import javax.swing.JButton;
 public class Korttipakka {
 
     ArrayList<Kortti> kortit = new ArrayList<>();
-    private int pareja;  
+    int pareja;  
     
     /**
      * Luokan konstruktori. 
