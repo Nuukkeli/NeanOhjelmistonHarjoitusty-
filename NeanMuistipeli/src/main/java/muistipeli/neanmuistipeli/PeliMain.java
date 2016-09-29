@@ -1,7 +1,6 @@
 package muistipeli.neanmuistipeli;
 
 import muistipeli.neanmuistipeli.peli.*;
-import javax.swing.SwingUtilities;
 
 public class PeliMain {
 
@@ -12,7 +11,7 @@ public class PeliMain {
     //Itseäni vain helpottaa toteuttaa projekti ensin näin, jotta toiminta hahmottuu.
     public static void main(String[] args) {
         
-        Peli peli = new Peli();
+        Peli peli = new Peli(4);
         peli.aloita();
     }
 
