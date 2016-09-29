@@ -5,6 +5,7 @@
  */
 package muistipeli.neanmuistipeli.kortti;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -121,6 +122,15 @@ public class KorttipakkaTest {
 
         assertEquals(true, pakka.onkoKaikkiLoytynyt());
     }
+    
+    @Test
+    public void ovatkoKaikkiLoytynytPalauttaaFalseJosKaikkiEiOleLoytynyt(){
+      
+        pakka.kortit.get(0).loydettiin();
+        pakka.kortit.get(pakka.parienMaara() - 1).loydettiin();
+        
+        assertFalse(pakka.onkoKaikkiLoytynyt());
+    }
 
     @Test
     public void kortinSijaintiPalauttaaKortinSijainnin() {
@@ -129,10 +139,29 @@ public class KorttipakkaTest {
 
         assertEquals(pakka.parienMaara() * 2 - 1, sijainti);
     }
+    
+    @Test
+    public void korttiSijainnillaPalauttaaOikeanKortin(){
+        Kortti k = pakka.kortit.get(1);
+        Kortti kortti = pakka.korttiSijainnilla(2);
+        
+        assertEquals(k.arvo(), kortti.arvo());
+    }
+    
 
-    @Test //Tätä olisi varmasti hyvä testata, mutten vielä tiedä miten
+    @Test 
     public void korttipakkaSisaltaaKaikkiaArvojaKaksiKpl() {
+        ArrayList<Kortti> kortit = pakka.kortit;
 
+        for (int i = 1; i < 5; i++) {
+            int n = 0;
+            for (Kortti kortti : kortit) {
+                if (kortti.arvo() == i) {
+                    n++;
+                }
+            }
+            assertEquals(n, 2);
+        }
     }
 
 }

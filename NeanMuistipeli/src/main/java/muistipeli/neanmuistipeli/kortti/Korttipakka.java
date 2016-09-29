@@ -48,7 +48,6 @@ public class Korttipakka {
         return kortit.get(sijainti - 1);
     }
 
-    //En ole varma tarvitseeko tätä lopulta
     public int kortinSijainti(Kortti kortti) {
         int sijainti = kortit.indexOf(kortti) + 1;
         return sijainti;
