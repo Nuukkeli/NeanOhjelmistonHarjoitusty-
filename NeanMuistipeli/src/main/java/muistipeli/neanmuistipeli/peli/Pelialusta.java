@@ -5,22 +5,24 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import muistipeli.neanmuistipeli.kortti.*;
 
 public class Pelialusta extends JFrame implements ActionListener {
-    
-    private JFrame ikkuna; 
+
+    private JFrame ikkuna;
     Panel pelilauta;
     Korttipakka pakka;
     int kaannettyja;
     int pareja;
     JButton[] korttiNappulat;
-    
-    public Pelialusta(int parienMaara){
+
+    public Pelialusta(int parienMaara) {
         pakka = new Korttipakka(parienMaara);
         kaannettyja = 0;
-        korttiNappulat = new JButton[parienMaara*2];
+        korttiNappulat = new JButton[parienMaara * 2];
     }
 
     public void pelaa() {
@@ -28,42 +30,31 @@ public class Pelialusta extends JFrame implements ActionListener {
         ikkuna.setPreferredSize(new Dimension(500, 500));
 
         ikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
+
         luoPelilauta();
-        
+
         ikkuna.pack();
         ikkuna.setVisible(true);
     }
-    
-    
-    private void luoPelilauta(){
+
+    private void luoPelilauta() {
         pelilauta = new Panel();
-        pelilauta.setLayout(new GridLayout(2,3));
-        
-        for(int i = 0; i < korttiNappulat.length; i++){
+        pelilauta.setLayout(new GridLayout(2, 3));
+
+        for (int i = 0; i < korttiNappulat.length; i++) {
             String arvo = "?";
-            
+
             korttiNappulat[i] = new JButton(arvo);
-            
+
             korttiNappulat[i].addActionListener(this);
             pelilauta.add(korttiNappulat[i]);
         }
-        
+
         ikkuna.add(pelilauta);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        for (int i = 0; i < korttiNappulat.length; i++) {
-
-            if (korttiNappulat[i] == e.getSource() && !pakka.kortit().get(i).nakyykoKuva()) {
-                kaannettyja++;
-                String arvo = "" + pakka.kortit().get(i).arvo();
-                pakka.kortit().get(i).kuvaNakyviin();
-                korttiNappulat[i].setText(arvo);
-
-            }
-        }
 
         if (kaannettyja == 2) {
 
@@ -85,18 +76,29 @@ public class Pelialusta extends JFrame implements ActionListener {
             }
 
         }
-        
+
+        for (int i = 0; i < korttiNappulat.length; i++) {
+
+            if (korttiNappulat[i] == e.getSource() && !pakka.kortit().get(i).nakyykoKuva()) {
+                kaannettyja++;
+                String arvo = "" + pakka.kortit().get(i).arvo();
+                pakka.kortit().get(i).kuvaNakyviin();
+                korttiNappulat[i].setText(arvo);
+
+            }
+        }
+
     }
-    
-    public void piilotaKaikkiKortitJoitaEiOleLoydetty(){
+
+    public void piilotaKaikkiKortitJoitaEiOleLoydetty() {
         pakka.kaannaKortit();
-        
-        for(int i = 0; i < korttiNappulat.length ; i++){
-            
-            if(!pakka.kortit().get(i).nakyykoKuva()){
+
+        for (int i = 0; i < korttiNappulat.length; i++) {
+
+            if (!pakka.kortit().get(i).nakyykoKuva()) {
                 korttiNappulat[i].setText("?");
             }
-            
+
         }
     }
     
