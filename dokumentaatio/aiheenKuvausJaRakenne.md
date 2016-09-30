@@ -10,5 +10,5 @@ Peliä voi pelata yksin aikaa vastaan tai kaverin kanssa.
 vuorolla, pelin voittaminen (tai häviäminen), pelin lopetus. Kaikilla 
 käyttäjillä on aina samat toiminnot.
 
-![Alt text](https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/luokkakaavio.png)
+![Alt text](https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/luokkakaavio30092016.png)
 
