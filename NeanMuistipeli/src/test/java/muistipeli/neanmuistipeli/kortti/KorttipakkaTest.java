@@ -47,7 +47,7 @@ public class KorttipakkaTest {
     public void korttipakkaanEiVoiTullaLiikaaKortteja() {
         Korttipakka kp = new Korttipakka(32);
 
-        assertEquals(8, kp.parienMaara());
+        assertEquals(10, kp.parienMaara());
     }
 
     @Test
@@ -122,13 +122,13 @@ public class KorttipakkaTest {
 
         assertEquals(true, pakka.onkoKaikkiLoytynyt());
     }
-    
+
     @Test
-    public void ovatkoKaikkiLoytynytPalauttaaFalseJosKaikkiEiOleLoytynyt(){
-      
+    public void ovatkoKaikkiLoytynytPalauttaaFalseJosKaikkiEiOleLoytynyt() {
+
         pakka.kortit.get(0).loydettiin();
         pakka.kortit.get(pakka.parienMaara() - 1).loydettiin();
-        
+
         assertFalse(pakka.onkoKaikkiLoytynyt());
     }
 
@@ -139,17 +139,16 @@ public class KorttipakkaTest {
 
         assertEquals(pakka.parienMaara() * 2 - 1, sijainti);
     }
-    
+
     @Test
-    public void korttiSijainnillaPalauttaaOikeanKortin(){
+    public void korttiSijainnillaPalauttaaOikeanKortin() {
         Kortti k = pakka.kortit.get(1);
         Kortti kortti = pakka.korttiSijainnilla(2);
-        
+
         assertEquals(k.arvo(), kortti.arvo());
     }
-    
 
-    @Test 
+    @Test
     public void korttipakkaSisaltaaKaikkiaArvojaKaksiKpl() {
         ArrayList<Kortti> kortit = pakka.kortit;
 
@@ -163,9 +162,9 @@ public class KorttipakkaTest {
             assertEquals(n, 2);
         }
     }
-    
+
     @Test
-    public void ovatkoKaannetytPariPalauttaaTrueJosKaannetytOvatPari(){
+    public void ovatkoKaannetytPariPalauttaaTrueJosKaannetytOvatPari() {
         Kortti eka = pakka.korttiSijainnilla(1);
         Kortti toka = pakka.korttiSijainnilla(2);
 
@@ -178,24 +177,24 @@ public class KorttipakkaTest {
 
         eka.kuvaNakyviin();
         toka.kuvaNakyviin();
-        
+
         assertTrue(pakka.ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat());
         assertTrue(toka.onkoLoydetty());
         assertTrue(eka.onkoLoydetty());
     }
-    
+
     @Test
-    public void ovatkoKaannetytPariPalauttaaFalseJosKaannetytEivatOlePari(){
+    public void ovatkoKaannetytPariPalauttaaFalseJosKaannetytEivatOlePari() {
         Kortti eka = pakka.korttiSijainnilla(1);
         Kortti toka = pakka.korttiSijainnilla(2);
-        
-        if(eka.arvo() == toka.arvo()){
+
+        if (eka.arvo() == toka.arvo()) {
             toka = pakka.korttiSijainnilla(3);
         }
-        
+
         eka.kuvaNakyviin();
         toka.kuvaNakyviin();
-        
+
         assertFalse(pakka.ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat());
         assertFalse(toka.onkoLoydetty());
         assertFalse(eka.onkoLoydetty());

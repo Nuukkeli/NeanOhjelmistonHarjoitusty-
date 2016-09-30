@@ -43,4 +43,9 @@ public class PelialustaTest {
     //
     // @Test
     // public void hello() {}
+    
+    @Test
+    public void pelialustaKonstruktori(){
+        
+    }
 }

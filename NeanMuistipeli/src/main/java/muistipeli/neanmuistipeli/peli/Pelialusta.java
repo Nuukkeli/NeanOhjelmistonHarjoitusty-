@@ -22,7 +22,7 @@ public class Pelialusta extends JFrame implements ActionListener {
     JButton[] korttiNappulat;
 
     public Pelialusta(int parienMaara) {
-        
+
         pakka = new Korttipakka(parienMaara);
         pareja = parienMaara;
         kaannettyja = 0;
@@ -68,7 +68,7 @@ public class Pelialusta extends JFrame implements ActionListener {
 
     /**
      * Metodi luo tapahtuman, kun kortteja (nappeja) klikataan.
-     * 
+     *
      * @param e ActionEvent
      */
     @Override
@@ -124,10 +124,10 @@ public class Pelialusta extends JFrame implements ActionListener {
 
         }
     }
-    
+
     /**
-     * Metodi asettaa voittotekstin, kun kaikki kortit on löydetty.
-     * Tämä muuttuu varmasti.
+     * Metodi asettaa voittotekstin, kun kaikki kortit on löydetty. Tämä muuttuu
+     * varmasti.
      */
     private void kaikkiLoytyivat() {
         for (int i = 0; i < korttiNappulat.length; i++) {

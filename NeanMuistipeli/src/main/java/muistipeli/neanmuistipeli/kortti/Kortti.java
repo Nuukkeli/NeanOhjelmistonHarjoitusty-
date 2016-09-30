@@ -8,7 +8,7 @@ public class Kortti {
 
     /**
      * Luokan konstruktori.
-     * 
+     *
      * @param arvo Kortin arvo.
      */
     public Kortti(int arvo) {
@@ -19,16 +19,16 @@ public class Kortti {
 
     /**
      * Metodi palauttaa kortin arvon.
-     * 
+     *
      * @return Kortin arvo.
      */
     public int arvo() {
         return this.arvo;
-    } 
+    }
 
     /**
      * Metodi kertoo onko kortin kuva näkyvissä.
-     * 
+     *
      * @return Totuusarvo, joka kertoo onko kortin kuva näkyvissä.
      */
     public boolean nakyykoKuva() {
@@ -37,13 +37,12 @@ public class Kortti {
 
     /**
      * Metodi kertoo onko kortti löydetty, eli onko sen pari löydetty.
-     * 
+     *
      * @return Totuusarvo, joka kertoo onko kortti löydetty.
      */
     public boolean onkoLoydetty() {
         return this.loydetty;
     }
-
 
     /**
      * Metodi asettaa kortin arvon näkyviin.

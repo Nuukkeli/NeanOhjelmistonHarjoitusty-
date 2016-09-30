@@ -6,16 +6,16 @@ import javax.swing.JButton;
 
 
 /**
- * Luokka tarjoaa korttien yhteyksien selvittämiseen tarvittavia metodeita. 
+ * Luokka tarjoaa korttien yhteyksien selvittämiseen tarvittavia metodeita.
  */
 public class Korttipakka {
 
     ArrayList<Kortti> kortit = new ArrayList<>();
-    int pareja;  
-    
+    int pareja;
+
     /**
-     * Luokan konstruktori. 
-     * 
+     * Luokan konstruktori.
+     *
      * @param pareja Korttipakan sisältämien korttiparien määrä.
      */
     public Korttipakka(int pareja) {
@@ -41,7 +41,7 @@ public class Korttipakka {
 
     /**
      * Metodi palauttaa listan, joka sisältää korttipakan kortit.
-     * 
+     *
      * @return Lista korteista.
      */
     public ArrayList<Kortti> kortit() {
@@ -49,7 +49,7 @@ public class Korttipakka {
     }
 
     /**
-     * Metodi asettaa kaikkien löytämättömien korttien näkyvyyden totuusarvoksi 
+     * Metodi asettaa kaikkien löytämättömien korttien näkyvyyden totuusarvoksi
      * "false", eli asettaa korttien arvot piiloon.
      */
     public void kaannaKortit() {
@@ -61,11 +61,11 @@ public class Korttipakka {
     }
 
     /**
-     * Metodi palauttaa kortin tietystä sijainnista. 
-     * 
-     * @param sijainti Sijainti, josta kortti haetaan. Sijainnit ovat välillä 
+     * Metodi palauttaa kortin tietystä sijainnista.
+     *
+     * @param sijainti Sijainti, josta kortti haetaan. Sijainnit ovat välillä
      * 1-n, jossa n on korttien määrä.
-     * 
+     *
      * @return Kortti, joka sijaitsee haetussa sijainnissa.
      */
     public Kortti korttiSijainnilla(int sijainti) {
@@ -74,9 +74,9 @@ public class Korttipakka {
 
     /**
      * Metodi palauttaa parametriksi annetun kortin sijainnin.
-     * 
+     *
      * @param kortti Kortti, jonka sijainti pakassa halutaan tietää.
-     * 
+     *
      * @return Parametriksi annetun kortin sijainti. Sijainnit ovat välillä 1-n,
      * jossa n on korttien määrä.
      */
@@ -86,8 +86,8 @@ public class Korttipakka {
     }
 
     /**
-     * Metodi palauttaa korttipakan parien määrän. 
-     * 
+     * Metodi palauttaa korttipakan parien määrän.
+     *
      * @return Korttipakan korttiparien määrä.
      */
     public int parienMaara() {
@@ -95,9 +95,9 @@ public class Korttipakka {
     }
 
     /**
-     * Metodi kertoo ovatko kaikki korttipakan kortit löytyneet, eli palauttaa 
+     * Metodi kertoo ovatko kaikki korttipakan kortit löytyneet, eli palauttaa
      * totuusarvon true, jos kaikki kortit on löydetty.
-     * 
+     *
      * @return Totuusarvo, joka kertoo ovatko kaikki kortit löytyneet.
      */
     public boolean onkoKaikkiLoytynyt() {
@@ -116,12 +116,13 @@ public class Korttipakka {
 
     /**
      * Metodi kertoo ovatko parametreiksi annetut kortit pari.
-     * 
-     * @param eka Kortti, josta halutaan tietää onko se pari toisen kortin kanssa.
-     * 
-     * @param toka Kortti, josta halutaan tietää onko se pari ensimmäisen kortin 
+     *
+     * @param eka Kortti, josta halutaan tietää onko se pari toisen kortin
      * kanssa.
-     * 
+     *
+     * @param toka Kortti, josta halutaan tietää onko se pari ensimmäisen kortin
+     * kanssa.
+     *
      * @return Totuusarvo, joka kertoo ovatko parametreiksi annetut kortit pari.
      */
     public boolean ovatkoPari(Kortti eka, Kortti toka) {
@@ -135,7 +136,7 @@ public class Korttipakka {
 
     /**
      * Metodi kertoo ovatko käännetyt (kaksi) korttia pari.
-     * 
+     *
      * @return Totuusarvo, joka kertoo ovatko käännetyt kortit pari.
      */
     public boolean ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat() {
