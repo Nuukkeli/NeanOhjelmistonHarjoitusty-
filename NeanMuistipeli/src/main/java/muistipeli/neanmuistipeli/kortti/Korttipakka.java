@@ -20,8 +20,8 @@ public class Korttipakka {
      */
     public Korttipakka(int pareja) {
 
-        if (pareja > 8) {
-            this.pareja = 8;
+        if (pareja > 10) {
+            this.pareja = 10;
         } else if (pareja < 2) {
             this.pareja = 2;
         } else {

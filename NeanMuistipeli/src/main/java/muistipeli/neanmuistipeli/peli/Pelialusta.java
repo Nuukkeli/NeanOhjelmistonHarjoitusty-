@@ -22,9 +22,11 @@ public class Pelialusta extends JFrame implements ActionListener {
     JButton[] korttiNappulat;
 
     public Pelialusta(int parienMaara) {
+        
+        pakka = new Korttipakka(parienMaara);
         pareja = parienMaara;
         kaannettyja = 0;
-        korttiNappulat = new JButton[parienMaara * 2];
+        korttiNappulat = new JButton[pakka.parienMaara() * 2];
     }
 
     /**
@@ -47,9 +49,8 @@ public class Pelialusta extends JFrame implements ActionListener {
      * Metodi luo pelilaudalle nappulat.
      */
     private void luoPelilauta() {
-        pakka = new Korttipakka(pareja);
         pelilauta = new Panel();
-        pelilauta.setLayout(new GridLayout(2, 3));
+        pelilauta.setLayout(new GridLayout(2, pareja));
 
         for (int i = 0; i < korttiNappulat.length; i++) {
             String arvo = "";
@@ -131,6 +132,7 @@ public class Pelialusta extends JFrame implements ActionListener {
     private void kaikkiLoytyivat() {
         for (int i = 0; i < korttiNappulat.length; i++) {
             korttiNappulat[i].setFont(new Font("Times New Roman", Font.BOLD, 15));
+            korttiNappulat[i].setBackground(Color.pink);
             korttiNappulat[i].setText("Voitit!!!!! :D:D:D");
 
         }
