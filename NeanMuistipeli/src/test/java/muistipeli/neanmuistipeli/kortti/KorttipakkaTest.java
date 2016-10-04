@@ -44,6 +44,23 @@ public class KorttipakkaTest {
     //Kaikkia metodeja ei testattu. Listan testaaminen vähän hakusessa. 
     //Testeille on tehty kyllä otsikoita, mutta sisältö puuttuu.
     @Test
+    public void luoKorttiPakkaLuoParillisenPakanKunParametriOnTrue() {
+        Korttipakka kp = new Korttipakka(3);
+        kp.luoKorttipakka(true);
+
+        for (int i = 1; i < 4; i++) {
+            int n = 0;
+
+            for (Kortti k : kp.kortit()) {
+                if (k.arvo() == i) {
+                    n++;
+                }
+            }
+            assertEquals(2, n);
+        }
+    }
+    
+    @Test
     public void korttipakkaanEiVoiTullaLiikaaKortteja() {
         Korttipakka kp = new Korttipakka(32);
         kp.luoKorttipakka(false);

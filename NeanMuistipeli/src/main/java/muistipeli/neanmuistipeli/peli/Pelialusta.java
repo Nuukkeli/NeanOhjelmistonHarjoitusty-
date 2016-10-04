@@ -49,10 +49,10 @@ public class Pelialusta extends JFrame implements ActionListener {
         ikkuna.setPreferredSize(new Dimension(1000, 1000));
 
         ikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        ikkuna.setLayout(new GridLayout(1, 2));
+        //ikkuna.setLayout(new GridLayout(1, 2));
         
-        yrityksia = new JLabel("Yrityksiä: " + yritykset);
-        ikkuna.add(yrityksia);
+        //yrityksia = new JLabel("Yrityksiä: " + yritykset);
+        //ikkuna.add(yrityksia);
 
         luoPelilauta();
 
@@ -102,8 +102,8 @@ public class Pelialusta extends JFrame implements ActionListener {
 
         if (this.pelaaPariMuistipeli) {
             if (kaannettyja == 2) {
-                yritykset++;
-                yrityksia.setText("Yrityksiä: " + yritykset);
+                //yritykset++;
+                //yrityksia.setText("Yrityksiä: " + yritykset);
 
                 if (parit.ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat()) {
                     pareja++;
@@ -165,8 +165,8 @@ public class Pelialusta extends JFrame implements ActionListener {
             korttiNappulat[i].setFont(new Font("Times New Roman", Font.BOLD, 15));
             korttiNappulat[i].setBackground(Color.pink);
             korttiNappulat[i].setText("Voitit!!!!! :D:D:D");
-            int yrityksiaLopuksi = yritykset - 1;
-            yrityksia.setText("Voitit! Yrityksiä kului " + yrityksiaLopuksi);
+            //int yrityksiaLopuksi = yritykset - 1;
+            //yrityksia.setText("Voitit! Yrityksiä kului " + yrityksiaLopuksi);
 
         }
 
