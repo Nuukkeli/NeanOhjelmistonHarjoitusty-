@@ -23,6 +23,37 @@ public class Korttipakka {
         this.pareja = pareja;
         kortit = new ArrayList<>();
     }
+    
+    public void luoKorttipakka(boolean pareilla) {
+
+        if (pareja > 10) {
+            this.pareja = 10;
+        } else if (pareja < 2) {
+            this.pareja = 2;
+        }
+
+        if (pareilla) {
+
+            for (int i = 1; i <= this.pareja; i++) {
+                Kortti ekaKortti = new Kortti(i);
+                Kortti tokaKortti = new Kortti(i);
+
+                kortit.add(ekaKortti);
+                kortit.add(tokaKortti);
+            }
+
+            Collections.shuffle(kortit);
+            
+        } else {
+
+            for (int i = 1; i <= pareja * 2; i++) {
+                Kortti k = new Kortti(i);
+                kortit.add(k);
+            }
+
+            Collections.shuffle(kortit);
+        }
+    }
 
     /**
      * Metodi palauttaa listan, joka sisältää korttipakan kortit.

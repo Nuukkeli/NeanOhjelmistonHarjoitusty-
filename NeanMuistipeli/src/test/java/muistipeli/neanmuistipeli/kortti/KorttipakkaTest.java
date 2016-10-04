@@ -5,7 +5,6 @@
  */
 package muistipeli.neanmuistipeli.kortti;
 
-import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -35,6 +34,7 @@ public class KorttipakkaTest {
     @Before
     public void setUp() {
         pakka = new Korttipakka(4);
+        pakka.luoKorttipakka(true);
     }
 
     @After
@@ -46,6 +46,7 @@ public class KorttipakkaTest {
     @Test
     public void korttipakkaanEiVoiTullaLiikaaKortteja() {
         Korttipakka kp = new Korttipakka(32);
+        kp.luoKorttipakka(false);
 
         assertEquals(10, kp.parienMaara());
     }
@@ -53,6 +54,7 @@ public class KorttipakkaTest {
     @Test
     public void korttiPakkaanEiVoiTullaLiianVahanKortteja() {
         Korttipakka kp = new Korttipakka(0);
+        kp.luoKorttipakka(true);
 
         assertEquals(2, kp.parienMaara());
     }
@@ -97,22 +99,7 @@ public class KorttipakkaTest {
         assertEquals(false, loytamattomiaNakyy);
     }
 
-    @Test
-    public void ovatkoPariTunnistaaJosKortitOvatPari() {
-        Kortti eka = new Kortti(1);
-        Kortti toka = new Kortti(1);
-
-        assertEquals(true, pakka.ovatkoPari(eka, toka));
-    }
-
-    @Test
-    public void ovatkoPariTunnistaaJosKortitEivatOlePari() {
-        Kortti eka = new Kortti(10);
-        Kortti toka = new Kortti(11);
-
-        assertEquals(false, pakka.ovatkoPari(eka, toka));
-    }
-
+    
     @Test
     public void onkoKaikkiLoytynytPalauttaaTrueJosKaikkiOnLoytynyt() {
 
@@ -147,57 +134,5 @@ public class KorttipakkaTest {
 
         assertEquals(k.arvo(), kortti.arvo());
     }
-
-    /*@Test
-    public void korttipakkaSisaltaaKaikkiaArvojaKaksiKpl() {
-        ArrayList<Kortti> kortit = pakka.kortit;
-
-        for (int i = 1; i < 5; i++) {
-            int n = 0;
-            for (Kortti kortti : kortit) {
-                if (kortti.arvo() == i) {
-                    n++;
-                }
-            }
-            assertEquals(n, 2);
-        }
-    }
-
-    @Test
-    public void ovatkoKaannetytPariPalauttaaTrueJosKaannetytOvatPari() {
-        Kortti eka = pakka.korttiSijainnilla(1);
-        Kortti toka = pakka.korttiSijainnilla(2);
-
-        for (int i = 1; i < pakka.parienMaara() * 2 - 1; i++) {
-
-            if (eka.arvo() != toka.arvo()) {
-                toka = pakka.korttiSijainnilla(2 + i);
-            }
-        }
-
-        eka.kuvaNakyviin();
-        toka.kuvaNakyviin();
-
-        assertTrue(pakka.ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat());
-        assertTrue(toka.onkoLoydetty());
-        assertTrue(eka.onkoLoydetty());
-    }
-
-    @Test
-    public void ovatkoKaannetytPariPalauttaaFalseJosKaannetytEivatOlePari() {
-        Kortti eka = pakka.korttiSijainnilla(1);
-        Kortti toka = pakka.korttiSijainnilla(2);
-
-        if (eka.arvo() == toka.arvo()) {
-            toka = pakka.korttiSijainnilla(3);
-        }
-
-        eka.kuvaNakyviin();
-        toka.kuvaNakyviin();
-
-        assertFalse(pakka.ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat());
-        assertFalse(toka.onkoLoydetty());
-        assertFalse(eka.onkoLoydetty());
-    }*/
 
 }

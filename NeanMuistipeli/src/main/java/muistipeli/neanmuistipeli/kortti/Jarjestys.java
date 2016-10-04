@@ -19,25 +19,12 @@ public class Jarjestys extends Korttipakka {
      * @param parienMaara Kertoo kuinka monta paria kortteja halutaan (vaikka ei 
      * etsitäkään pareja).
      */
-    
     public Jarjestys(int parienMaara) {
         super(parienMaara);
-        kortteja = parienMaara*2;
-
-        if (kortteja > 20) {
-            kortteja = 20;
-        } else if (kortteja < 2) {
-            kortteja = 2;
-        }
-
-        for (int i = 1; i <= kortteja; i++) {
-            Kortti k = new Kortti(i);
-            kortit.add(k);
-        }
-
-        Collections.shuffle(kortit);
+        super.luoKorttipakka(false);
+        kortteja = parienMaara * 2;
     }
-    
+
     public void asetaEdelliseksi(Kortti k){
         edellinen = k;
     }

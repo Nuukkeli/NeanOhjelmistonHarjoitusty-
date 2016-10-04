@@ -16,23 +16,7 @@ public class Pari extends Korttipakka {
     public Pari(int pareja) {
         super(pareja);
         
-        if (pareja > 10) {
-            this.pareja = 10;
-        } else if (pareja < 2) {
-            this.pareja = 2;
-        } else {
-            this.pareja = pareja;
-        }
-
-        for (int i = 1; i <= this.pareja; i++) {
-            Kortti ekaKortti = new Kortti(i);
-            Kortti tokaKortti = new Kortti(i);
-            
-            super.kortit.add(ekaKortti);
-            super.kortit.add(tokaKortti);
-        }
-
-        Collections.shuffle(kortit);
+        super.luoKorttipakka(true);
     }
 
     /**
