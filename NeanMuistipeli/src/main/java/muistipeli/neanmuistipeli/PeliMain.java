@@ -1,5 +1,6 @@
 package muistipeli.neanmuistipeli;
 
+import muistipeli.neanmuistipeli.kortti.*;
 import muistipeli.neanmuistipeli.peli.*;
 
 /**
@@ -12,7 +13,7 @@ public class PeliMain {
      */
     public static void main(String[] args) {
 
-        Peli peli = new Peli(20, true);
+        Peli peli = new Peli(9, true);
         peli.aloita();
     }
 

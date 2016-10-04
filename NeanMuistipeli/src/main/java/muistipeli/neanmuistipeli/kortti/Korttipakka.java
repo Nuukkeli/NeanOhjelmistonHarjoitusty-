@@ -6,11 +6,12 @@ import javax.swing.JButton;
 
 
 /**
- * Luokka tarjoaa korttien yhteyksien selvittämiseen tarvittavia metodeita.
+ * Luokka tarjoaa korttien yhteyksien selvittämiseen tarvittavia metodeita 
+ * pelattaessa muistipeliä, jossa etsitään pareja.
  */
-public class KorttipakkaPari {
+public class Korttipakka {
 
-    ArrayList<Kortti> kortit = new ArrayList<>();
+    ArrayList<Kortti> kortit;
     int pareja;
 
     /**
@@ -18,25 +19,9 @@ public class KorttipakkaPari {
      *
      * @param pareja Korttipakan sisältämien korttiparien määrä.
      */
-    public KorttipakkaPari(int pareja) {
-
-        if (pareja > 10) {
-            this.pareja = 10;
-        } else if (pareja < 2) {
-            this.pareja = 2;
-        } else {
-            this.pareja = pareja; //Parien max määrä alustava ja toiminta "väärissä" tilanteissa alustavaa 
-        }
-
-        for (int i = 1; i <= this.pareja; i++) {
-            Kortti ekaKortti = new Kortti(i);
-            Kortti tokaKortti = new Kortti(i);
-
-            kortit.add(ekaKortti);
-            kortit.add(tokaKortti);
-        }
-
-        Collections.shuffle(kortit);
+    public Korttipakka(int pareja) {
+        this.pareja = pareja;
+        kortit = new ArrayList<>();
     }
 
     /**
@@ -113,60 +98,4 @@ public class KorttipakkaPari {
 
         return kaikkiLoytynyt;
     }
-
-    /**
-     * Metodi kertoo ovatko parametreiksi annetut kortit pari.
-     *
-     * @param eka Kortti, josta halutaan tietää onko se pari toisen kortin
-     * kanssa.
-     *
-     * @param toka Kortti, josta halutaan tietää onko se pari ensimmäisen kortin
-     * kanssa.
-     *
-     * @return Totuusarvo, joka kertoo ovatko parametreiksi annetut kortit pari.
-     */
-    public boolean ovatkoPari(Kortti eka, Kortti toka) {
-
-        if (eka.arvo() == toka.arvo()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * Metodi kertoo ovatko käännetyt (kaksi) korttia pari.
-     *
-     * @return Totuusarvo, joka kertoo ovatko käännetyt kortit pari.
-     */
-    public boolean ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat() {
-        boolean ovatkoPari = false;
-        Kortti eka = null;
-        Kortti toka = null;
-
-        for (Kortti k : kortit()) {
-
-            if (k.nakyykoKuva() && !k.onkoLoydetty()) {
-                eka = k;
-                break;
-            }
-
-        }
-
-        for (Kortti k : kortit()) {
-
-            if (k.nakyykoKuva() && !k.onkoLoydetty() && this.kortinSijainti(k) != this.kortinSijainti(eka)) {
-                toka = k;
-            }
-        }
-
-        if (eka.arvo() == toka.arvo()) {
-            ovatkoPari = true;
-            eka.loydettiin();
-            toka.loydettiin();
-        }
-
-        return ovatkoPari;
-    }
-
 }

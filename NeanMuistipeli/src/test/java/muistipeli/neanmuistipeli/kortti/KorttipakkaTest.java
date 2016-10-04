@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  */
 public class KorttipakkaTest {
 
-    KorttipakkaPari pakka;
+    Korttipakka pakka;
 
     public KorttipakkaTest() {
     }
@@ -34,7 +34,7 @@ public class KorttipakkaTest {
 
     @Before
     public void setUp() {
-        pakka = new KorttipakkaPari(4);
+        pakka = new Korttipakka(4);
     }
 
     @After
@@ -45,14 +45,14 @@ public class KorttipakkaTest {
     //Testeille on tehty kyllä otsikoita, mutta sisältö puuttuu.
     @Test
     public void korttipakkaanEiVoiTullaLiikaaKortteja() {
-        KorttipakkaPari kp = new KorttipakkaPari(32);
+        Korttipakka kp = new Korttipakka(32);
 
         assertEquals(10, kp.parienMaara());
     }
 
     @Test
     public void korttiPakkaanEiVoiTullaLiianVahanKortteja() {
-        KorttipakkaPari kp = new KorttipakkaPari(0);
+        Korttipakka kp = new Korttipakka(0);
 
         assertEquals(2, kp.parienMaara());
     }
@@ -148,7 +148,7 @@ public class KorttipakkaTest {
         assertEquals(k.arvo(), kortti.arvo());
     }
 
-    @Test
+    /*@Test
     public void korttipakkaSisaltaaKaikkiaArvojaKaksiKpl() {
         ArrayList<Kortti> kortit = pakka.kortit;
 
@@ -198,6 +198,6 @@ public class KorttipakkaTest {
         assertFalse(pakka.ovatkoKaannetytPariJaAsetaLoytyneeksiJosOvat());
         assertFalse(toka.onkoLoydetty());
         assertFalse(eka.onkoLoydetty());
-    }
+    }*/
 
 }
