@@ -14,21 +14,23 @@ public class Peli {
 
     private Pelialusta alusta;
     int pareja;
+    boolean pelaaPariMuistipeli;
 
     /**
      * Luokan konstruktori.
      *
      * @param parienMaara Korttiparien määrä, joka halutaan peliin.
      */
-    public Peli(int parienMaara) {
+    public Peli(int parienMaara, boolean pelataankoPariMuistipeli) {
         pareja = parienMaara;
-    }
+        pelaaPariMuistipeli = pelataankoPariMuistipeli;
+    }    
 
     /**
      * Metodi aloittaa pelin.
      */
     public void aloita() {
-        alusta = new Pelialusta(pareja);
+        alusta = new Pelialusta(pareja, pelaaPariMuistipeli);
         alusta.pelaa();
 
     }

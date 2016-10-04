@@ -8,7 +8,7 @@ import javax.swing.JButton;
 /**
  * Luokka tarjoaa korttien yhteyksien selvittämiseen tarvittavia metodeita.
  */
-public class Korttipakka {
+public class KorttipakkaPari {
 
     ArrayList<Kortti> kortit = new ArrayList<>();
     int pareja;
@@ -18,7 +18,7 @@ public class Korttipakka {
      *
      * @param pareja Korttipakan sisältämien korttiparien määrä.
      */
-    public Korttipakka(int pareja) {
+    public KorttipakkaPari(int pareja) {
 
         if (pareja > 10) {
             this.pareja = 10;

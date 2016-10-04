@@ -16,14 +16,19 @@ public class Pelialusta extends JFrame implements ActionListener {
 
     private JFrame ikkuna;
     private Panel pelilauta;
-    private Korttipakka pakka;
+    private KorttipakkaPari pakka;
     private int kaannettyja;
     private int pareja;
     JButton[] korttiNappulat;
+    boolean pelaaPariMuistipeli;
+    
+    public Pelialusta(int parienMaara, boolean pelataankoPariMuistipeli) {
+        pelaaPariMuistipeli = pelataankoPariMuistipeli;
 
-    public Pelialusta(int parienMaara) {
-
-        pakka = new Korttipakka(parienMaara);
+        if (pelaaPariMuistipeli) {
+            pakka = new KorttipakkaPari(parienMaara);
+        }
+        
         pareja = parienMaara;
         kaannettyja = 0;
         korttiNappulat = new JButton[pakka.parienMaara() * 2];

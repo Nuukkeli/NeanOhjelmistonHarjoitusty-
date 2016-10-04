@@ -12,7 +12,7 @@ public class PeliMain {
      */
     public static void main(String[] args) {
 
-        Peli peli = new Peli(20);
+        Peli peli = new Peli(20, true);
         peli.aloita();
     }
 
