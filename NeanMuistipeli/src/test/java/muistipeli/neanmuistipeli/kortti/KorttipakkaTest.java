@@ -41,8 +41,6 @@ public class KorttipakkaTest {
     public void tearDown() {
     }
 
-    //Kaikkia metodeja ei testattu. Listan testaaminen vähän hakusessa. 
-    //Testeille on tehty kyllä otsikoita, mutta sisältö puuttuu.
     @Test
     public void luoKorttiPakkaLuoParillisenPakanKunParametriOnTrue() {
         Korttipakka kp = new Korttipakka(3);
@@ -57,6 +55,23 @@ public class KorttipakkaTest {
                 }
             }
             assertEquals(2, n);
+        }
+    }
+    
+    @Test
+    public void luoKorttiPakkaLuoJarjestysPakanKunParametriOnFalse() {
+        Korttipakka kp = new Korttipakka(3);
+        kp.luoKorttipakka(false);
+
+        for (int i = 1; i < 7; i++) {
+            int n = 0;
+
+            for (Kortti k : kp.kortit()) {
+                if (k.arvo() == i) {
+                    n++;
+                }
+            }
+            assertEquals(1, n);
         }
     }
     

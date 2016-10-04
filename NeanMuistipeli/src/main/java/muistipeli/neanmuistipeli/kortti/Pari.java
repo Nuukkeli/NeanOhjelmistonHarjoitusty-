@@ -8,8 +8,10 @@ package muistipeli.neanmuistipeli.kortti;
 import java.util.Collections;
 
 /**
- *
- * @author euro
+ *Luokka tarjoaa korttien yhteyksien selvittämiseen tarvittavia metodeita 
+ *pelattaessa muistipeliä, jossa etsitään pareja. 
+ * 
+ * Perii luokan Korttipakka metodit.
  */
 public class Pari extends Korttipakka {
 

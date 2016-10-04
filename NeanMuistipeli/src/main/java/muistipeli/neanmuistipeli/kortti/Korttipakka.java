@@ -6,8 +6,7 @@ import javax.swing.JButton;
 
 
 /**
- * Luokka tarjoaa korttien yhteyksien selvittämiseen tarvittavia metodeita 
- * pelattaessa muistipeliä, jossa etsitään pareja.
+ * Luokka tarjoaa korttien yhteyksien selvittämiseen tarvittavia metodeita.
  */
 public class Korttipakka {
 
@@ -24,6 +23,12 @@ public class Korttipakka {
         kortit = new ArrayList<>();
     }
     
+    /**
+     * Metodi luo korttipakan, eli listan joka sisältää pelin kortit. 
+     * 
+     * @param pareilla Totuusarvo kertoo tuleeko korteille olla parit vai onko 
+     * jokaista kortti vain yksi.
+     */
     public void luoKorttipakka(boolean pareilla) {
 
         if (pareja > 10) {

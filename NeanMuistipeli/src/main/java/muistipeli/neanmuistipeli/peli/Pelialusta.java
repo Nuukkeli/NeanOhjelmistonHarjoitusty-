@@ -37,7 +37,7 @@ public class Pelialusta extends JFrame implements ActionListener {
         pareja = parienMaara;
         kaannettyja = 0;
         yritykset = 0;
-        korttiNappulat = new JButton[parit.parienMaara() * 2];
+        korttiNappulat = new JButton[jarj.parienMaara() * 2];
     }
 
     /**
@@ -136,7 +136,33 @@ public class Pelialusta extends JFrame implements ActionListener {
                 }
             }
 
-        } 
+        } else {
+            
+            for (int i = 0; i < korttiNappulat.length; i++) {
+                Kortti k = jarj.kortit().get(i);
+
+                if (korttiNappulat[i] == e.getSource() && !k.nakyykoKuva()) {
+                    String arvo = "" + k.arvo();
+                    k.kuvaNakyviin();
+                    jarj.korttiKaannettiin(k);
+                    korttiNappulat[i].setText(arvo);
+                    korttiNappulat[i].setBackground(Color.orange);
+
+                    if (jarj.onkoSeuraava(k)) {
+                        kaannettyja++;
+
+                        if (jarj.onkoKaikkiLoytynyt()) {
+                            this.kaikkiLoytyivat();
+                        }
+
+                    } else {
+                        jarj.nollaaEdellinen();
+                        piilotaKaikki();
+                    }
+
+                }
+            }
+        }
 
     }
 
@@ -144,15 +170,37 @@ public class Pelialusta extends JFrame implements ActionListener {
      * Metodi asettaa kaikkien löytämättömien korttien arvon piiloon.
      */
     private void piilotaKaikkiKortitJoitaEiOleLoydetty() {
-        parit.kaannaKortit();
 
-        for (int i = 0; i < korttiNappulat.length; i++) {
+        if (pelaaPariMuistipeli) {
+            parit.kaannaKortit();
 
-            if (!parit.kortit().get(i).nakyykoKuva()) {
-                korttiNappulat[i].setText("");
-                korttiNappulat[i].setBackground(Color.LIGHT_GRAY);
+            for (int i = 0; i < korttiNappulat.length; i++) {
+
+                if (!parit.kortit().get(i).nakyykoKuva()) {
+                    korttiNappulat[i].setText("");
+                    korttiNappulat[i].setBackground(Color.LIGHT_GRAY);
+                }
+
             }
+        } else {
+            jarj.kaannaKortit();
 
+            for (int i = 0; i < korttiNappulat.length; i++) {
+
+                if (!jarj.kortit().get(i).nakyykoKuva()) {
+                    korttiNappulat[i].setText("");
+                    korttiNappulat[i].setBackground(Color.LIGHT_GRAY);
+                }
+
+            }
+        }
+    }
+    
+    private void piilotaKaikki(){
+        for(int i = 0; i < korttiNappulat.length; i++){
+            jarj.kortit().get(i).kuvaPiiloon();
+            korttiNappulat[i].setText("");
+            korttiNappulat[i].setBackground(Color.LIGHT_GRAY);
         }
     }
 
