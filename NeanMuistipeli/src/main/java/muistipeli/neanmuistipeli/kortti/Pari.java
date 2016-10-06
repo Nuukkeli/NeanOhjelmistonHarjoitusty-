@@ -14,7 +14,12 @@ import java.util.Collections;
  * Perii luokan Korttipakka metodit.
  */
 public class Pari extends Korttipakka {
-
+    
+    /**
+     * Luokan konstruktori.
+     * 
+     * @param pareja Peliin haluttu korttiparien määrä.
+     */
     public Pari(int pareja) {
         super(pareja);
         

@@ -24,14 +24,14 @@ public class Pelialusta extends JFrame implements ActionListener {
     JButton[] korttiNappulat;
     boolean pelaaPariMuistipeli;
     JLabel yrityksia;
-    
+
     /**
      * Luokan konstruktori.
-     * 
+     *
      * @param parienMaara Montako paria kortteja peliin halutaan.
-     * 
-     * @param pelataankoPariMuistipeli Totuusarvo, joka kertoo pelataanko 
-     * muistipeli, jossa etsitään pareja. Jos false, niin pelataan muistipeli, 
+     *
+     * @param pelataankoPariMuistipeli Totuusarvo, joka kertoo pelataanko
+     * muistipeli, jossa etsitään pareja. Jos false, niin pelataan muistipeli,
      * jossa nappeja painetaan oikeassa järjestyksessä.
      */
     public Pelialusta(int parienMaara, boolean pelataankoPariMuistipeli) {
@@ -206,9 +206,9 @@ public class Pelialusta extends JFrame implements ActionListener {
             }
         }
     }
-    
-    private void piilotaKaikki(){
-        for(int i = 0; i < korttiNappulat.length; i++){
+
+    private void piilotaKaikki() {
+        for (int i = 0; i < korttiNappulat.length; i++) {
             jarj.kortit().get(i).kuvaPiiloon();
             korttiNappulat[i].setText("");
             korttiNappulat[i].setBackground(Color.LIGHT_GRAY);
