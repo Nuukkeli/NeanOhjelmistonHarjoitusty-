@@ -10,7 +10,7 @@ import javax.swing.*;
 import muistipeli.neanmuistipeli.kortti.*;
 
 /**
- * Luokan konstruktori.
+ * Luokka luo käyttöliittymän eli pelialustan, jolla muistipeliä pelataan.
  */
 public class Pelialusta extends JFrame implements ActionListener {
 
@@ -25,6 +25,15 @@ public class Pelialusta extends JFrame implements ActionListener {
     boolean pelaaPariMuistipeli;
     JLabel yrityksia;
     
+    /**
+     * Luokan konstruktori.
+     * 
+     * @param parienMaara Montako paria kortteja peliin halutaan.
+     * 
+     * @param pelataankoPariMuistipeli Totuusarvo, joka kertoo pelataanko 
+     * muistipeli, jossa etsitään pareja. Jos false, niin pelataan muistipeli, 
+     * jossa nappeja painetaan oikeassa järjestyksessä.
+     */
     public Pelialusta(int parienMaara, boolean pelataankoPariMuistipeli) {
         pelaaPariMuistipeli = pelataankoPariMuistipeli;
 
@@ -33,11 +42,16 @@ public class Pelialusta extends JFrame implements ActionListener {
         } else {
             jarj = new Jarjestys(parienMaara);
         }
-        
+
         pareja = parienMaara;
         kaannettyja = 0;
         yritykset = 0;
-        korttiNappulat = new JButton[jarj.parienMaara() * 2];
+
+        if (pelaaPariMuistipeli) {
+            korttiNappulat = new JButton[parit.parienMaara() * 2];
+        } else {
+            korttiNappulat = new JButton[jarj.parienMaara() * 2];
+        }
     }
 
     /**
@@ -50,10 +64,9 @@ public class Pelialusta extends JFrame implements ActionListener {
 
         ikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //ikkuna.setLayout(new GridLayout(1, 2));
-        
+
         //yrityksia = new JLabel("Yrityksiä: " + yritykset);
         //ikkuna.add(yrityksia);
-
         luoPelilauta();
 
         ikkuna.pack();
@@ -68,15 +81,14 @@ public class Pelialusta extends JFrame implements ActionListener {
 
         if (pareja < 5) {
             pelilauta.setLayout(new GridLayout(2, pareja));
-            
+
         } else if (pareja > 4 && pareja < 7) {
             pelilauta.setLayout(new GridLayout(3, 4));
-            
+
         } else {
             pelilauta.setLayout(new GridLayout(4, 5));
-            
-        }
 
+        }
 
         for (int i = 0; i < korttiNappulat.length; i++) {
             String arvo = "";
@@ -137,14 +149,13 @@ public class Pelialusta extends JFrame implements ActionListener {
             }
 
         } else {
-            
+
             for (int i = 0; i < korttiNappulat.length; i++) {
                 Kortti k = jarj.kortit().get(i);
 
                 if (korttiNappulat[i] == e.getSource() && !k.nakyykoKuva()) {
                     String arvo = "" + k.arvo();
                     k.kuvaNakyviin();
-                    jarj.korttiKaannettiin(k);
                     korttiNappulat[i].setText(arvo);
                     korttiNappulat[i].setBackground(Color.orange);
 

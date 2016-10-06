@@ -1,5 +1,8 @@
 package muistipeli.neanmuistipeli.kortti;
 
+/**
+ * Luokka tarjoaa ominaisuuksia ja metodeja yksittäiselle muistipelin kortille.
+ */
 public class Kortti {
 
     private int arvo; //Alustavasti int, mahdollisesti muuttuu myöhemmin.

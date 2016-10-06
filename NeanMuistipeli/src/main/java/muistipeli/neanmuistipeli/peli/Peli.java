@@ -5,8 +5,8 @@
  */
 package muistipeli.neanmuistipeli.peli;
 
-//MUUTTUU JA PALJON! TARKOITUS, ETTÄ SAA VALITA PARIEN MÄÄRÄN (NAPPULAT) JA PELIMUODON (AINAKIN AIKAA JA YRITYKSIÄ VASTAAN, EHKÄ MYÖS KAKSINPELI)
-//Mahdollisesti myös muoto, jossa pitää löytää kortit 1-korttien määrä oikeassa järjestyksessä. Tämä tarkoittaa myös korttipakkaluokan muuttamista.
+//MUUTTUU JA PALJON! TARKOITUS, ETTÄ SAA VALITA PARIEN MÄÄRÄN (NAPPULAT) JA PELIMUODON.
+
 /**
  * Luokka käynnistää pelin. Myöhemmin tekee varmasti muutakin.
  */
@@ -20,6 +20,9 @@ public class Peli {
      * Luokan konstruktori.
      *
      * @param parienMaara Korttiparien määrä, joka halutaan peliin.
+     * 
+     * @param pelataankoPariMuistipeli Kertoo pelataanko muistipeli, jossa 
+     * etsitään pareja.
      */
     public Peli(int parienMaara, boolean pelataankoPariMuistipeli) {
         pareja = parienMaara;
