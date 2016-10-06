@@ -19,3 +19,5 @@ Kaikilla käyttäjillä on aina samat toiminnot.
 ![Alt text](https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/K%C3%A4ytt%C3%B6tapaus%20Muistipelin%20aloitus.png)
 
 ![Alt text](https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/suuruusjarjestyksessaSeuraavanKortinLoytaminen.png)
+
+![Alt text](https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/voittaminen.png)
