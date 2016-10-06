@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 5,
+      <title>File: 7,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -44,6 +44,20 @@ under the License.
             </tr>
           </thead>
           <tbody>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.kortti.Jarjestys.java">muistipeli/neanmuistipeli/kortti/Jarjestys.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.kortti.Korttipakka.java">muistipeli/neanmuistipeli/kortti/Korttipakka.java</a>
@@ -103,6 +117,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.PeliMain.java">muistipeli/neanmuistipeli/PeliMain.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.kortti.Pari.java">muistipeli/neanmuistipeli/kortti/Pari.java</a>
                 </td>
                 <td>
                   0
