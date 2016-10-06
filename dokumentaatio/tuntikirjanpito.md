@@ -11,4 +11,5 @@ Päivä | Tunnit | Kuvaus
 27.09.2016 | 3h | Käyttöliittymän suunnittelua ja toteutuksen aloitus
 28.09.2016 | 4h | Käyttöliittymän toteutusta
 04.10.2016 | 3h | Pelilogiikan laajennusta, eli toinen pelivaihtoehto toteutettu
+05.10.2016 | 1h | Pelin toteutuksen suunnittelua, esimerkiksi miten ohjelmassa valitaan korttimäärä ja pelimuoto
 
