@@ -5,21 +5,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Luokka tarjoaa korttien yhteyksien selvittämiseen tarvittavia metodeita 
+ * Luokka tarjoaa korttien yhteyksien selvittämiseen tarvittavia metodeita
  * pelattaessa muistipeliä, jossa etsitään kortteja suuruusjärjestyksessä.
- * 
- * Perii luokan Korttipakka metodit. 
+ *
+ * Perii luokan Korttipakka metodit.
  */
 public class Jarjestys extends Korttipakka {
+
     ArrayList<Kortti> kaannetyt = new ArrayList<>();
     int kortteja;
     Kortti edellinen;
     Kortti edellinenKaannetty;
-    
+
     /**
      * Luokan konstruktori, jossa luodaan korttipakka.
-     * 
-     * @param parienMaara Kertoo kuinka monta paria kortteja halutaan (vaikka ei 
+     *
+     * @param parienMaara Kertoo kuinka monta paria kortteja halutaan (vaikka ei
      * etsitäkään pareja).
      */
     public Jarjestys(int parienMaara) {
@@ -27,7 +28,17 @@ public class Jarjestys extends Korttipakka {
         super.luoKorttipakka(false);
         kortteja = parienMaara * 2;
     }
-    
+
+    /**
+     * Metodi kertoo onko parametriksi annettu kortti seuraavana
+     * suuruusjärjestyksessä.
+     *
+     * @param k Kortti, josta halutaan tietää, onko se seuraava
+     * suuruusjärjestyksessä.
+     *
+     * @return Totuusarvo, joka kertoo onko parametriksi annettu kortti
+     * seuraava.
+     */
     public boolean onkoSeuraava(Kortti k) {
 
         if (edellinen == null) {
@@ -48,18 +59,12 @@ public class Jarjestys extends Korttipakka {
         return false;
 
     }
-    
-    public void nollaaEdellinen(){
+
+    /**
+     * Metodi nollaa edellisen löydetyn kortin.
+     */
+    public void nollaaEdellinen() {
         edellinen = null;
     }
-    
-    public Kortti edellinenKaannetty(){
-        return edellinenKaannetty;
-    }
-    
-    public void korttiKaannettiin(Kortti k){
-        edellinenKaannetty = k;
-    }
-    
-    
+
 }
