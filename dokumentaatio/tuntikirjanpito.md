@@ -10,5 +10,5 @@ Päivä | Tunnit | Kuvaus
 23.09.2016 | 5h | Toiminnan toteuttamisen jatkoa, testejä lisää, käyttöliittymän suunnittelua (mutta ei vielä toteutus)
 27.09.2016 | 3h | Käyttöliittymän suunnittelua ja toteutuksen aloitus
 28.09.2016 | 4h | Käyttöliittymän toteutusta
-
+04.10.2016 | 3h | Pelilogiikan laajennusta, eli toinen pelivaihtoehto toteutettu
 
