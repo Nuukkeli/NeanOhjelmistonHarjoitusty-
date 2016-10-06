@@ -54,4 +54,29 @@ public class JarjestysTest {
             assertEquals(1, n);
         }
     }
+    
+    @Test
+    public void onkoSeuraavaPalauttaaOikeanTotuusarvon(){
+        Kortti yksi = new Kortti(1);
+        boolean onkoYksiSeuraava = pakka.onkoSeuraava(yksi);
+        assertTrue(onkoYksiSeuraava);
+        
+        Kortti kolme = new Kortti(3);
+        boolean onkoKolmeSeuraava = pakka.onkoSeuraava(kolme);
+        assertFalse(onkoKolmeSeuraava);
+        
+        Kortti kaksi = new Kortti(2);
+        boolean onkoKaksiSeuraava = pakka.onkoSeuraava(kaksi);
+        assertTrue(onkoKaksiSeuraava);
+    }
+    
+    @Test
+    public void nollaaEdellinenNollaaEdellisenKortin(){
+        Kortti yksi = new Kortti(1);
+        pakka.onkoSeuraava(yksi);
+        
+        assertFalse(pakka.onkoSeuraava(yksi));
+        pakka.nollaaEdellinen();
+        assertTrue(pakka.onkoSeuraava(yksi));
+    }
 }
