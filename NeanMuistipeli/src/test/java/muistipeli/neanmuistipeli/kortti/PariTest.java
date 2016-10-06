@@ -18,28 +18,29 @@ import static org.junit.Assert.*;
  * @author euro
  */
 public class PariTest {
+
     Pari pakka;
-    
+
     public PariTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         pakka = new Pari(4);
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     @Test
     public void korttipakkaSisaltaaKaikkiaArvojaKaksiKpl() {
         ArrayList<Kortti> kortit = pakka.kortit;
@@ -54,7 +55,7 @@ public class PariTest {
             assertEquals(n, 2);
         }
     }
-    
+
     @Test
     public void ovatkoPariTunnistaaJosKortitOvatPari() {
         Kortti eka = new Kortti(1);
@@ -70,7 +71,7 @@ public class PariTest {
 
         assertEquals(false, pakka.ovatkoPari(eka, toka));
     }
-    
+
     @Test
     public void ovatkoKaannetytPariPalauttaaTrueJosKaannetytOvatPari() {
         Kortti eka = pakka.korttiSijainnilla(1);

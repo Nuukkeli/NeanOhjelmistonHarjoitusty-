@@ -1,4 +1,3 @@
-
 package muistipeli.neanmuistipeli.kortti;
 
 import java.util.ArrayList;
