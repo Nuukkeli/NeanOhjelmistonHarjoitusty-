@@ -14,5 +14,5 @@ Peliä voi pelata yksin aikaa tai yrityksiä vastaan.
 korttien kääntäminen omalla, pelin voittaminen, pelin lopetus. 
 Kaikilla käyttäjillä on aina samat toiminnot.
 
-![Alt text](https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/luokkakaavio30092016.png)
+![Alt text](https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/Luokkakaavio06102016.png)
 
