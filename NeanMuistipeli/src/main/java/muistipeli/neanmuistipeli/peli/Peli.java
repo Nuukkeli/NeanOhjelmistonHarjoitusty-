@@ -21,12 +21,12 @@ public class Peli extends JFrame implements ActionListener {
     int pareja;
     boolean pelaaPariMuistipeli;
     JFrame alusta;
-    private JButton helppo;
-    private JButton keskitaso;
-    private JButton vaikea;
-    private JButton haaste;
-    private JButton pari;
-    private JButton jarjestys;
+    private JRadioButton helppo;
+    private JRadioButton keskitaso;
+    private JRadioButton vaikea;
+    private JRadioButton haaste;
+    private JRadioButton pari;
+    private JRadioButton jarjestys;
     private JButton aloita;
     
     /**
@@ -55,9 +55,9 @@ public class Peli extends JFrame implements ActionListener {
         ButtonGroup peli = new ButtonGroup();
         ButtonGroup vaikeus = new ButtonGroup();
         
-        jarjestys = new JButton("Järjestys muistipeli");
+        jarjestys = new JRadioButton("Järjestys muistipeli");
         jarjestys.addActionListener(this);
-        pari = new JButton("Pari muistipeli");
+        pari = new JRadioButton("Pari muistipeli");
         pari.addActionListener(this);
         
         pelimuotopaneeli.add(new JLabel("Valitse pelimuoto:"));
@@ -67,13 +67,13 @@ public class Peli extends JFrame implements ActionListener {
         peli.add(jarjestys);
         pelimuotopaneeli.add(jarjestys);
         
-        helppo = new JButton("Helppo");
+        helppo = new JRadioButton("Helppo");
         helppo.addActionListener(this);
-        keskitaso = new JButton("Keskitaso");
+        keskitaso = new JRadioButton("Keskitaso");
         keskitaso.addActionListener(this);
-        vaikea = new JButton("Vaikea");
+        vaikea = new JRadioButton("Vaikea");
         vaikea.addActionListener(this);
-        haaste = new JButton("HAASTE");
+        haaste = new JRadioButton("HAASTE");
         haaste.addActionListener(this);
         
         JPanel vaikeustasopaneeli = new JPanel(new GridLayout(4,4));
@@ -133,6 +133,7 @@ public class Peli extends JFrame implements ActionListener {
         if(e.getSource() == aloita){
             pelialusta = new Pelialusta(pareja, pelaaPariMuistipeli);
             pelialusta.pelaa();
+            
         }
     }
 }
