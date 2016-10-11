@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  */
 public class JarjestysTest {
 
-    Jarjestys pakka;
+    JarjestysPakka pakka;
 
     public JarjestysTest() {
     }
@@ -33,7 +33,7 @@ public class JarjestysTest {
 
     @Before
     public void setUp() {
-        pakka = new Jarjestys(4);
+        pakka = new JarjestysPakka(4);
     }
 
     @After

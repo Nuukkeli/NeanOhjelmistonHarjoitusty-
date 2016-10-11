@@ -16,8 +16,8 @@ public class Pelialusta extends JFrame implements ActionListener {
 
     private JFrame ikkuna;
     private Panel pelilauta;
-    private Pari parit;
-    private Jarjestys jarj;
+    private PariPakka parit;
+    private JarjestysPakka jarj;
     private int kaannettyja;
     private int pareja;
     private int yritykset;
@@ -38,9 +38,9 @@ public class Pelialusta extends JFrame implements ActionListener {
         pelaaPariMuistipeli = pelataankoPariMuistipeli;
 
         if (pelaaPariMuistipeli) {
-            parit = new Pari(parienMaara);
+            parit = new PariPakka(parienMaara);
         } else {
-            jarj = new Jarjestys(parienMaara);
+            jarj = new JarjestysPakka(parienMaara);
         }
 
         pareja = parienMaara;

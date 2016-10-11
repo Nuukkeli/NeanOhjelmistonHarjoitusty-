@@ -9,7 +9,7 @@ import java.util.Collections;
  *
  * Perii luokan Korttipakka metodit.
  */
-public class Jarjestys extends Korttipakka {
+public class JarjestysPakka extends Korttipakka {
 
     ArrayList<Kortti> kaannetyt = new ArrayList<>();
     int kortteja;
@@ -22,7 +22,7 @@ public class Jarjestys extends Korttipakka {
      * @param parienMaara Kertoo kuinka monta paria kortteja halutaan (vaikka ei
      * etsitäkään pareja).
      */
-    public Jarjestys(int parienMaara) {
+    public JarjestysPakka(int parienMaara) {
         super(parienMaara);
         super.luoKorttipakka(false);
         kortteja = parienMaara * 2;

@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  */
 public class PariTest {
 
-    Pari pakka;
+    PariPakka pakka;
 
     public PariTest() {
     }
@@ -34,7 +34,7 @@ public class PariTest {
 
     @Before
     public void setUp() {
-        pakka = new Pari(4);
+        pakka = new PariPakka(4);
     }
 
     @After
