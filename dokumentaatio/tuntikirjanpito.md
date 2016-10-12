@@ -13,3 +13,4 @@ Päivä | Tunnit | Kuvaus
 04.10.2016 | 3h | Pelilogiikan laajennusta, eli toinen pelivaihtoehto toteutettu
 05.10.2016 | 1h | Pelin toteutuksen suunnittelua, esimerkiksi miten ohjelmassa valitaan korttimäärä ja pelimuoto
 06.10.2016 | 4h | Testejä, javadoc, luokkakaavion päivitys, sekvenssikaaviot
+11.10.2016 | 1.5h | Alkukyselyn lisäys
