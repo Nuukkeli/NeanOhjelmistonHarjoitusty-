@@ -17,9 +17,9 @@ public class Korttipakka {
      * Luokan konstruktori.
      *
      * @param pareja Korttipakan sisältämien korttiparien määrä.
-     * 
-     * @param sekoituskortti Kertoo onko pelissä mukana sekoituskortti, 
-     * jonka löytyessä kortit sekoittuvat uudelleen.
+     *
+     * @param sekoituskortti Kertoo onko pelissä mukana sekoituskortti, jonka
+     * löytyessä kortit sekoittuvat uudelleen.
      */
     public Korttipakka(int pareja, boolean sekoituskortti) {
         this.pareja = pareja;
@@ -121,19 +121,19 @@ public class Korttipakka {
     public int parienMaara() {
         return this.pareja;
     }
-    
+
     /**
      * Metodi palauttaa korttipakan korttien määrän.
-     * 
+     *
      * @return Korttipakan korttien määrä.
      */
-    public int korttienMaara(){
+    public int korttienMaara() {
         int kortteja = 0;
-        
-        for(Kortti k : kortit()){
+
+        for (Kortti k : kortit()) {
             kortteja++;
         }
-        
+
         return kortteja;
     }
 
@@ -156,11 +156,11 @@ public class Korttipakka {
 
         return kaikkiLoytynyt;
     }
-    
+
     /**
      * Metodi sekoittaa korttipakan kortit uuteen järjestykseen.
      */
-    public void sekoitaKortit(){
-        Collections.shuffle(kortit());
+    public void sekoitaKortit() {
+        Collections.shuffle(kortit);
     }
 }

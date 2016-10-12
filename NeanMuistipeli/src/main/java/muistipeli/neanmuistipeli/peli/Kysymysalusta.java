@@ -31,13 +31,15 @@ public class Kysymysalusta extends JFrame implements ActionListener {
     private JRadioButton sekoitusJoo;
     private JRadioButton sekoitusEi;
     private JButton aloita;
+    boolean pelattu;
     
     /**
      * Luokan konstruktori.
      *
      */
-    public Kysymysalusta() {
+    public Kysymysalusta(boolean onkoJoPelattu) {
         pareja = 2;
+        pelattu = onkoJoPelattu;
         pelaaPariMuistipeli = true;
         sekoituskortti = false;
     }    
@@ -49,10 +51,26 @@ public class Kysymysalusta extends JFrame implements ActionListener {
         this.kysymysAlusta();
     }
     
-    public void kysymysAlusta(){
-        alusta = new JFrame("Valitse peli ja vaikeustaso");
-        alusta.setPreferredSize(new Dimension(250, 600));
-        alusta.setLayout(new GridLayout(4, 1));
+    public void kysymysAlusta() {
+
+        if (pelattu) {
+            alusta = new JFrame("Uusi peli?");
+            alusta.setLayout(new GridLayout(5, 1));
+        } else {
+            alusta = new JFrame("Valitse peli ja vaikeustaso");
+            alusta.setLayout(new GridLayout(4,1));
+        }
+
+        alusta.setPreferredSize(new Dimension(400, 600));
+        
+        
+        if(pelattu){
+            JLabel laabeli = new JLabel("VOITIT! :D");
+            Font fontti = new Font("Comic Sans", Font.BOLD, 20);
+            laabeli.setFont(fontti);
+            laabeli.setForeground(Color.pink);
+            alusta.add(laabeli);
+        }
         
         JPanel pelimuotopaneeli = pelimuotopaneeli();
         JPanel vaikeustasopaneeli = vaikeustasopaneeli();
@@ -165,6 +183,7 @@ public class Kysymysalusta extends JFrame implements ActionListener {
         if(e.getSource() == aloita){
             pelialusta = new Pelialusta(pareja, pelaaPariMuistipeli, sekoituskortti);
             pelialusta.pelaa();
+            alusta.dispose();
             
         }
     }

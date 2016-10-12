@@ -34,9 +34,9 @@ public class Pelialusta extends JFrame implements ActionListener {
      * @param pelataankoPariMuistipeli Totuusarvo, joka kertoo pelataanko
      * muistipeli, jossa etsitään pareja. Jos false, niin pelataan muistipeli,
      * jossa nappeja painetaan oikeassa järjestyksessä.
-     * 
-     * @param sekoituskortti Totuusarvo, joka kertoo halutaanko peli, 
-     * jossa on mukana sekoituskortti, jonka löytyessä pakka sekoittuu.
+     *
+     * @param sekoituskortti Totuusarvo, joka kertoo halutaanko peli, jossa on
+     * mukana sekoituskortti, jonka löytyessä pakka sekoittuu.
      */
     public Pelialusta(int parienMaara, boolean pelataankoPariMuistipeli, boolean sekoituskortti) {
         pelaaPariMuistipeli = pelataankoPariMuistipeli;
@@ -118,7 +118,7 @@ public class Pelialusta extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (this.pelaaPariMuistipeli) {
-            
+
             if (kaannettyja == 2) {
                 //yritykset++;
                 //yrityksia.setText("Yrityksiä: " + yritykset);
@@ -144,19 +144,19 @@ public class Pelialusta extends JFrame implements ActionListener {
 
             for (int i = 0; i < korttiNappulat.length; i++) {
                 Kortti k = parit.kortit().get(i);
-                
+
                 if (korttiNappulat[i] == e.getSource() && !k.nakyykoKuva()) {
-                    
+
                     String arvo = "" + k.arvo();
                     k.kuvaNakyviin();
-                    
+
                     if (k.arvo() == 0 && sekoitus) {
                         k.loydettiin();
                         parit.sekoitaKortit();
                         kortitSekoittuu();
                         piilotaKaikkiKortitJoitaEiOleLoydetty();
                         kaannettyja = 0;
-                        
+
                     } else {
                         kaannettyja++;
                         korttiNappulat[i].setText(arvo);
@@ -172,15 +172,13 @@ public class Pelialusta extends JFrame implements ActionListener {
                 Kortti k = jarj.kortit().get(i);
 
                 if (korttiNappulat[i] == e.getSource() && !k.nakyykoKuva()) {
-                    
-                    
-                    if(k.arvo() == 0){
+
+                    if (k.arvo() == 0) {
                         k.loydettiin();
                         jarj.sekoitaKortit();
                         kortitSekoittuu();
                         piilotaKaikki();
-                        
-                        
+
                     } else if (jarj.onkoSeuraava(k)) {
                         String arvo = "" + k.arvo();
                         k.kuvaNakyviin();
@@ -237,32 +235,29 @@ public class Pelialusta extends JFrame implements ActionListener {
      * Metodi asettaa voittotekstin, kun kaikki kortit on löydetty.
      */
     private void kaikkiLoytyivat() {
-        for (int i = 0; i < korttiNappulat.length; i++) {
-            korttiNappulat[i].setFont(new Font("Times New Roman", Font.BOLD, 15));
-            korttiNappulat[i].setBackground(Color.pink);
-            korttiNappulat[i].setText("Voitit!!!!! :D:D:D");
-            //int yrityksiaLopuksi = yritykset - 1;
-            //yrityksia.setText("Voitit! Yrityksiä kului " + yrityksiaLopuksi);
 
-        }
+        Kysymysalusta kysymysalusta = new Kysymysalusta(true);
+        kysymysalusta.aloita();
+
+        ikkuna.dispose();
 
     }
-    
-    private void kortitSekoittuu(){
-        for(int i = 0; i < korttiNappulat.length; i++){
-            
-            if(pelaaPariMuistipeli){
+
+    private void kortitSekoittuu() {
+        for (int i = 0; i < korttiNappulat.length; i++) {
+
+            if (pelaaPariMuistipeli) {
                 Kortti k = parit.kortit().get(i);
-                
+
                 kortinKuva(k, i);
-                
+
             } else {
-                
+
                 Kortti k = jarj.kortit().get(i);
-                
+
                 kortinKuva(k, i);
             }
-            
+
         }
     }
 

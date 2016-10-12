@@ -14,7 +14,7 @@ public class PeliMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Kysymysalusta peli = new Kysymysalusta();
+        Kysymysalusta peli = new Kysymysalusta(false);
         peli.aloita();
     }
 
