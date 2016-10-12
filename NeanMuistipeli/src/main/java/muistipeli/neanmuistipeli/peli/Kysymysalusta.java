@@ -146,7 +146,6 @@ public class Kysymysalusta extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("Click!");
         
         if(e.getSource() == pari){
             pelaaPariMuistipeli = true;
