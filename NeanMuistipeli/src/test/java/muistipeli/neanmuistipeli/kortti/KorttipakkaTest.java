@@ -5,6 +5,7 @@
  */
 package muistipeli.neanmuistipeli.kortti;
 
+import java.util.Random;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -40,9 +41,10 @@ public class KorttipakkaTest {
     @After
     public void tearDown() {
     }
-
+    
+    //Testataan samassa metodissa, että pakkaan ei tule sekoituskorttia.
     @Test
-    public void luoKorttiPakkaLuoParillisenPakanKunParametriOnTrue() {
+    public void sekoituskorttiOnFalseJaPeliOnPari() {
         Korttipakka kp = new Korttipakka(3, false);
         kp.luoKorttipakka(true);
 
@@ -56,10 +58,48 @@ public class KorttipakkaTest {
             }
             assertEquals(2, n);
         }
+
+        int nollia = 0;
+
+        for (Kortti k : kp.kortit()) {
+            if (k.arvo() == 0) {
+                nollia++;
+            }
+        }
+        assertEquals(0, nollia);
     }
     
     @Test
-    public void luoKorttiPakkaLuoJarjestysPakanKunParametriOnFalse() {
+    public void sekoituskorttiOnTrueJaPeliOnPari(){
+        Korttipakka kp = new Korttipakka(2, true);
+        kp.luoKorttipakka(true);
+        
+        for (int i = 1; i < 3; i++) {
+            int n = 0;
+
+            for (Kortti k : kp.kortit()) {
+                if (k.arvo() == i) {
+                    n++;
+                }
+            }
+            
+            assertEquals(2, n);
+        }
+        
+        int nollia = 0;
+        
+        for(Kortti k : kp.kortit()){
+            if(k.arvo() == 0){
+                nollia++;
+            }
+        }
+        
+        assertEquals(1, nollia);
+        
+    }
+    
+    @Test
+    public void sekoituskorttiOnFalseJaPeliOnJarjestys() {
         Korttipakka kp = new Korttipakka(3, false);
         kp.luoKorttipakka(false);
 
@@ -73,6 +113,44 @@ public class KorttipakkaTest {
             }
             assertEquals(1, n);
         }
+        
+        int nollia = 0;
+        
+        for( Kortti k : kp.kortit()){
+            if(k.arvo() == 0){
+                nollia++;
+            }
+        }
+        
+        assertEquals(0, nollia);
+    }
+    
+    @Test
+    public void sekoituskorttiOnTrueJaPeliOnJarjestys(){
+        Korttipakka kp = new Korttipakka(6, true);
+        kp.luoKorttipakka(false);
+        
+        for(int i = 1; i < 13 ; i++){
+            int n = 0;
+            
+            for (Kortti k : kp.kortit()){
+                if(k.arvo() == i){
+                    n++;
+                }
+            }
+            
+            assertEquals(1, n);
+        }
+        
+        int nollia = 0;
+        
+        for(Kortti k : kp.kortit()){
+            if(k.arvo() == 0){
+                nollia++;
+            }
+        }
+        
+        assertEquals(1, nollia);
     }
     
     @Test
@@ -89,6 +167,28 @@ public class KorttipakkaTest {
         kp.luoKorttipakka(true);
 
         assertEquals(2, kp.parienMaara());
+    }
+    
+    @Test
+    public void korttipakkaKertooKorttienMaaranOikeinKunMukanaEiOleSekoitusKorttia() {
+        Random r = new Random();
+        int i = r.nextInt(9) + 2;
+
+        Korttipakka kp = new Korttipakka(i, false);
+        kp.luoKorttipakka(true);
+
+        assertEquals(i * 2, kp.korttienMaara());
+    }
+    
+    @Test
+    public void korttipakkaKertooKorttienMaaranOikeinKunMukanaOnSekoitusKortti() {
+        Random r = new Random();
+        int i = r.nextInt(9) + 2;
+
+        Korttipakka kp = new Korttipakka(i, true);
+        kp.luoKorttipakka(true);
+
+        assertEquals(i * 2 + 1, kp.korttienMaara());
     }
 
     @Test
@@ -140,6 +240,18 @@ public class KorttipakkaTest {
         }
 
         assertEquals(true, pakka.onkoKaikkiLoytynyt());
+    }
+    
+    @Test
+    public void onkoKaikkiLoytynytPalauttaaTrueVaikkaNollaEiOlisiLoytynyt(){
+        
+        for(Kortti k : pakka.kortit()){
+            if(k.arvo() != 0){
+                k.loydettiin();
+            }
+        }
+        
+        assertTrue(pakka.onkoKaikkiLoytynyt());
     }
 
     @Test
