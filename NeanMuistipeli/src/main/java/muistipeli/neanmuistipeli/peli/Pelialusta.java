@@ -24,6 +24,7 @@ public class Pelialusta extends JFrame implements ActionListener {
     JButton[] korttiNappulat;
     boolean pelaaPariMuistipeli;
     JLabel yrityksia;
+    boolean sekoitus;
 
     /**
      * Luokan konstruktori.
@@ -33,14 +34,18 @@ public class Pelialusta extends JFrame implements ActionListener {
      * @param pelataankoPariMuistipeli Totuusarvo, joka kertoo pelataanko
      * muistipeli, jossa etsitään pareja. Jos false, niin pelataan muistipeli,
      * jossa nappeja painetaan oikeassa järjestyksessä.
+     * 
+     * @param sekoituskortti Totuusarvo, joka kertoo halutaanko peli, 
+     * jossa on mukana sekoituskortti, jonka löytyessä pakka sekoittuu.
      */
-    public Pelialusta(int parienMaara, boolean pelataankoPariMuistipeli) {
+    public Pelialusta(int parienMaara, boolean pelataankoPariMuistipeli, boolean sekoituskortti) {
         pelaaPariMuistipeli = pelataankoPariMuistipeli;
+        sekoitus = sekoituskortti;
 
         if (pelaaPariMuistipeli) {
-            parit = new PariPakka(parienMaara);
+            parit = new PariPakka(parienMaara, sekoituskortti);
         } else {
-            jarj = new JarjestysPakka(parienMaara);
+            jarj = new JarjestysPakka(parienMaara, sekoituskortti);
         }
 
         pareja = parienMaara;
@@ -48,9 +53,9 @@ public class Pelialusta extends JFrame implements ActionListener {
         yritykset = 0;
 
         if (pelaaPariMuistipeli) {
-            korttiNappulat = new JButton[parit.parienMaara() * 2];
+            korttiNappulat = new JButton[parit.korttienMaara()];
         } else {
-            korttiNappulat = new JButton[jarj.parienMaara() * 2];
+            korttiNappulat = new JButton[jarj.korttienMaara()];
         }
     }
 
@@ -113,6 +118,7 @@ public class Pelialusta extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (this.pelaaPariMuistipeli) {
+            
             if (kaannettyja == 2) {
                 //yritykset++;
                 //yrityksia.setText("Yrityksiä: " + yritykset);
@@ -137,13 +143,25 @@ public class Pelialusta extends JFrame implements ActionListener {
             }
 
             for (int i = 0; i < korttiNappulat.length; i++) {
-
-                if (korttiNappulat[i] == e.getSource() && !parit.kortit().get(i).nakyykoKuva()) {
-                    kaannettyja++;
-                    String arvo = "" + parit.kortit().get(i).arvo();
-                    parit.kortit().get(i).kuvaNakyviin();
-                    korttiNappulat[i].setText(arvo);
-                    korttiNappulat[i].setBackground(Color.orange);
+                Kortti k = parit.kortit().get(i);
+                
+                if (korttiNappulat[i] == e.getSource() && !k.nakyykoKuva()) {
+                    
+                    String arvo = "" + k.arvo();
+                    k.kuvaNakyviin();
+                    
+                    if (k.arvo() == 0 && sekoitus) {
+                        k.loydettiin();
+                        parit.sekoitaKortit();
+                        kortitSekoittuu();
+                        piilotaKaikkiKortitJoitaEiOleLoydetty();
+                        kaannettyja = 0;
+                        
+                    } else {
+                        kaannettyja++;
+                        korttiNappulat[i].setText(arvo);
+                        korttiNappulat[i].setBackground(Color.orange);
+                    }
 
                 }
             }
@@ -154,12 +172,20 @@ public class Pelialusta extends JFrame implements ActionListener {
                 Kortti k = jarj.kortit().get(i);
 
                 if (korttiNappulat[i] == e.getSource() && !k.nakyykoKuva()) {
-                    String arvo = "" + k.arvo();
-                    k.kuvaNakyviin();
-                    korttiNappulat[i].setText(arvo);
-                    korttiNappulat[i].setBackground(Color.orange);
-
-                    if (jarj.onkoSeuraava(k)) {
+                    
+                    
+                    if(k.arvo() == 0){
+                        k.loydettiin();
+                        jarj.sekoitaKortit();
+                        kortitSekoittuu();
+                        piilotaKaikki();
+                        
+                        
+                    } else if (jarj.onkoSeuraava(k)) {
+                        String arvo = "" + k.arvo();
+                        k.kuvaNakyviin();
+                        korttiNappulat[i].setText(arvo);
+                        korttiNappulat[i].setBackground(Color.orange);
                         kaannettyja++;
 
                         if (jarj.onkoKaikkiLoytynyt()) {
@@ -182,42 +208,33 @@ public class Pelialusta extends JFrame implements ActionListener {
      */
     private void piilotaKaikkiKortitJoitaEiOleLoydetty() {
 
-        if (pelaaPariMuistipeli) {
-            parit.kaannaKortit();
+        parit.kaannaKortit();
 
-            for (int i = 0; i < korttiNappulat.length; i++) {
+        for (int i = 0; i < korttiNappulat.length; i++) {
 
-                if (!parit.kortit().get(i).nakyykoKuva()) {
-                    korttiNappulat[i].setText("");
-                    korttiNappulat[i].setBackground(Color.LIGHT_GRAY);
-                }
-
+            if (!parit.kortit().get(i).nakyykoKuva()) {
+                korttiNappulat[i].setText("");
+                korttiNappulat[i].setBackground(Color.LIGHT_GRAY);
             }
-        } else {
-            jarj.kaannaKortit();
 
-            for (int i = 0; i < korttiNappulat.length; i++) {
-
-                if (!jarj.kortit().get(i).nakyykoKuva()) {
-                    korttiNappulat[i].setText("");
-                    korttiNappulat[i].setBackground(Color.LIGHT_GRAY);
-                }
-
-            }
         }
+
     }
 
     private void piilotaKaikki() {
         for (int i = 0; i < korttiNappulat.length; i++) {
-            jarj.kortit().get(i).kuvaPiiloon();
-            korttiNappulat[i].setText("");
-            korttiNappulat[i].setBackground(Color.LIGHT_GRAY);
+            Kortti k = jarj.kortit().get(i);
+
+            if (k.arvo() != 0) {
+                jarj.kortit().get(i).kuvaPiiloon();
+                korttiNappulat[i].setText("");
+                korttiNappulat[i].setBackground(Color.LIGHT_GRAY);
+            }
         }
     }
 
     /**
-     * Metodi asettaa voittotekstin, kun kaikki kortit on löydetty. Tämä muuttuu
-     * varmasti.
+     * Metodi asettaa voittotekstin, kun kaikki kortit on löydetty.
      */
     private void kaikkiLoytyivat() {
         for (int i = 0; i < korttiNappulat.length; i++) {
@@ -229,6 +246,39 @@ public class Pelialusta extends JFrame implements ActionListener {
 
         }
 
+    }
+    
+    private void kortitSekoittuu(){
+        for(int i = 0; i < korttiNappulat.length; i++){
+            
+            if(pelaaPariMuistipeli){
+                Kortti k = parit.kortit().get(i);
+                
+                kortinKuva(k, i);
+                
+            } else {
+                
+                Kortti k = jarj.kortit().get(i);
+                
+                kortinKuva(k, i);
+            }
+            
+        }
+    }
+
+    private void kortinKuva(Kortti k, int i) {
+        if (k.nakyykoKuva() && k.arvo() == 0) {
+            korttiNappulat[i].setText("Sekoitus");
+            korttiNappulat[i].setBackground(Color.GREEN);
+        } else if (k.nakyykoKuva()) {
+            String arvo = "" + k.arvo();
+            korttiNappulat[i].setText(arvo);
+            korttiNappulat[i].setBackground(Color.orange);
+
+        } else {
+            korttiNappulat[i].setText("");
+            korttiNappulat[i].setBackground(Color.LIGHT_GRAY);
+        }
     }
 
 }

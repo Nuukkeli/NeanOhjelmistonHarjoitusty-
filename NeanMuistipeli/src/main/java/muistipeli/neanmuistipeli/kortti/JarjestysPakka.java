@@ -21,9 +21,12 @@ public class JarjestysPakka extends Korttipakka {
      *
      * @param parienMaara Kertoo kuinka monta paria kortteja halutaan (vaikka ei
      * etsitäkään pareja).
+     * 
+     * @param sekoituskortti Kertoo onko pelissä mukana sekoituskortti, 
+     * jonka löytyessä kortit sekoittuvat uudelleen.
      */
-    public JarjestysPakka(int parienMaara) {
-        super(parienMaara);
+    public JarjestysPakka(int parienMaara, boolean sekoituskortti) {
+        super(parienMaara, sekoituskortti);
         super.luoKorttipakka(false);
         kortteja = parienMaara * 2;
     }

@@ -19,9 +19,12 @@ public class PariPakka extends Korttipakka {
      * Luokan konstruktori.
      * 
      * @param pareja Peliin haluttu korttiparien määrä.
+     * 
+     * @param sekoituskortti Totuusarvo, joka kertoo lisätäänkö korttipakkaan 
+     * sekoituskortti.
      */
-    public PariPakka(int pareja) {
-        super(pareja);
+    public PariPakka(int pareja, boolean sekoituskortti) {
+        super(pareja, sekoituskortti);
         
         super.luoKorttipakka(true);
     }

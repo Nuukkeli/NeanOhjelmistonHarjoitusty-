@@ -33,7 +33,7 @@ public class KorttipakkaTest {
 
     @Before
     public void setUp() {
-        pakka = new Korttipakka(4);
+        pakka = new Korttipakka(4, false);
         pakka.luoKorttipakka(true);
     }
 
@@ -43,7 +43,7 @@ public class KorttipakkaTest {
 
     @Test
     public void luoKorttiPakkaLuoParillisenPakanKunParametriOnTrue() {
-        Korttipakka kp = new Korttipakka(3);
+        Korttipakka kp = new Korttipakka(3, false);
         kp.luoKorttipakka(true);
 
         for (int i = 1; i < 4; i++) {
@@ -60,7 +60,7 @@ public class KorttipakkaTest {
     
     @Test
     public void luoKorttiPakkaLuoJarjestysPakanKunParametriOnFalse() {
-        Korttipakka kp = new Korttipakka(3);
+        Korttipakka kp = new Korttipakka(3, false);
         kp.luoKorttipakka(false);
 
         for (int i = 1; i < 7; i++) {
@@ -77,7 +77,7 @@ public class KorttipakkaTest {
     
     @Test
     public void korttipakkaanEiVoiTullaLiikaaKortteja() {
-        Korttipakka kp = new Korttipakka(32);
+        Korttipakka kp = new Korttipakka(32, false);
         kp.luoKorttipakka(false);
 
         assertEquals(10, kp.parienMaara());
@@ -85,7 +85,7 @@ public class KorttipakkaTest {
 
     @Test
     public void korttiPakkaanEiVoiTullaLiianVahanKortteja() {
-        Korttipakka kp = new Korttipakka(0);
+        Korttipakka kp = new Korttipakka(0, false);
         kp.luoKorttipakka(true);
 
         assertEquals(2, kp.parienMaara());

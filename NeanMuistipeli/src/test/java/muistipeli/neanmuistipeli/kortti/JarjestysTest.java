@@ -33,7 +33,7 @@ public class JarjestysTest {
 
     @Before
     public void setUp() {
-        pakka = new JarjestysPakka(4);
+        pakka = new JarjestysPakka(4, false);
     }
 
     @After

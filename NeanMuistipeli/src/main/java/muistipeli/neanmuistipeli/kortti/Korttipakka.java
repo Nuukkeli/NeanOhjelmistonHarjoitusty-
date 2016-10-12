@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.JButton;
 
-
 /**
  * Luokka tarjoaa korttien yhteyksien selvittämiseen tarvittavia metodeita.
  */
@@ -12,21 +11,26 @@ public class Korttipakka {
 
     ArrayList<Kortti> kortit;
     int pareja;
+    boolean sekoitus;
 
     /**
      * Luokan konstruktori.
      *
      * @param pareja Korttipakan sisältämien korttiparien määrä.
+     * 
+     * @param sekoituskortti Kertoo onko pelissä mukana sekoituskortti, 
+     * jonka löytyessä kortit sekoittuvat uudelleen.
      */
-    public Korttipakka(int pareja) {
+    public Korttipakka(int pareja, boolean sekoituskortti) {
         this.pareja = pareja;
         kortit = new ArrayList<>();
+        sekoitus = sekoituskortti;
     }
-    
+
     /**
-     * Metodi luo korttipakan, eli listan joka sisältää pelin kortit. 
-     * 
-     * @param pareilla Totuusarvo kertoo tuleeko korteille olla parit vai onko 
+     * Metodi luo korttipakan, eli listan joka sisältää pelin kortit.
+     *
+     * @param pareilla Totuusarvo kertoo tuleeko korteille olla parit vai onko
      * jokaista kortti vain yksi.
      */
     public void luoKorttipakka(boolean pareilla) {
@@ -47,17 +51,20 @@ public class Korttipakka {
                 kortit.add(tokaKortti);
             }
 
-            Collections.shuffle(kortit);
-            
         } else {
 
             for (int i = 1; i <= pareja * 2; i++) {
                 Kortti k = new Kortti(i);
                 kortit.add(k);
             }
-
-            Collections.shuffle(kortit);
         }
+
+        if (sekoitus) {
+            Kortti k = new Kortti(0);
+            kortit.add(k);
+        }
+
+        Collections.shuffle(kortit);
     }
 
     /**
@@ -114,6 +121,21 @@ public class Korttipakka {
     public int parienMaara() {
         return this.pareja;
     }
+    
+    /**
+     * Metodi palauttaa korttipakan korttien määrän.
+     * 
+     * @return Korttipakan korttien määrä.
+     */
+    public int korttienMaara(){
+        int kortteja = 0;
+        
+        for(Kortti k : kortit()){
+            kortteja++;
+        }
+        
+        return kortteja;
+    }
 
     /**
      * Metodi kertoo ovatko kaikki korttipakan kortit löytyneet, eli palauttaa
@@ -126,12 +148,19 @@ public class Korttipakka {
         boolean kaikkiLoytynyt = true;
 
         for (Kortti k : kortit) {
-            if (!k.onkoLoydetty()) {
+            if (!k.onkoLoydetty() && k.arvo() != 0) {
                 kaikkiLoytynyt = false;
                 break;
             }
         }
 
         return kaikkiLoytynyt;
+    }
+    
+    /**
+     * Metodi sekoittaa korttipakan kortit uuteen järjestykseen.
+     */
+    public void sekoitaKortit(){
+        Collections.shuffle(kortit());
     }
 }

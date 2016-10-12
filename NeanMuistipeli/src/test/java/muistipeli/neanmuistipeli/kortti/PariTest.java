@@ -34,7 +34,7 @@ public class PariTest {
 
     @Before
     public void setUp() {
-        pakka = new PariPakka(4);
+        pakka = new PariPakka(4, false);
     }
 
     @After

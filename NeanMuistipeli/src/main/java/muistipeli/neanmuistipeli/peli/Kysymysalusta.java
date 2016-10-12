@@ -15,11 +15,12 @@ import javax.swing.*;
 /**
  * Luokka käynnistää pelin. Myöhemmin tekee varmasti muutakin.
  */
-public class Peli extends JFrame implements ActionListener {
+public class Kysymysalusta extends JFrame implements ActionListener {
 
     private Pelialusta pelialusta;
     int pareja;
     boolean pelaaPariMuistipeli;
+    boolean sekoituskortti;
     JFrame alusta;
     private JRadioButton helppo;
     private JRadioButton keskitaso;
@@ -27,15 +28,18 @@ public class Peli extends JFrame implements ActionListener {
     private JRadioButton haaste;
     private JRadioButton pari;
     private JRadioButton jarjestys;
+    private JRadioButton sekoitusJoo;
+    private JRadioButton sekoitusEi;
     private JButton aloita;
     
     /**
      * Luokan konstruktori.
      *
      */
-    public Peli() {
+    public Kysymysalusta() {
         pareja = 2;
         pelaaPariMuistipeli = true;
+        sekoituskortti = false;
     }    
 
     /**
@@ -47,50 +51,24 @@ public class Peli extends JFrame implements ActionListener {
     
     public void kysymysAlusta(){
         alusta = new JFrame("Valitse peli ja vaikeustaso");
-        alusta.setPreferredSize(new Dimension(500, 500));
-        alusta.setLayout(new GridLayout(3, 1));
+        alusta.setPreferredSize(new Dimension(250, 600));
+        alusta.setLayout(new GridLayout(4, 1));
         
-        JPanel pelimuotopaneeli = new JPanel(new GridLayout(4, 4));
+        JPanel pelimuotopaneeli = pelimuotopaneeli();
+        JPanel vaikeustasopaneeli = vaikeustasopaneeli();
         
-        ButtonGroup peli = new ButtonGroup();
-        ButtonGroup vaikeus = new ButtonGroup();
-        
-        jarjestys = new JRadioButton("Järjestys muistipeli");
-        jarjestys.addActionListener(this);
-        pari = new JRadioButton("Pari muistipeli");
-        pari.addActionListener(this);
-        
-        pelimuotopaneeli.add(new JLabel("Valitse pelimuoto:"));
-        
-        peli.add(pari);
-        pelimuotopaneeli.add(pari);
-        peli.add(jarjestys);
-        pelimuotopaneeli.add(jarjestys);
-        
-        helppo = new JRadioButton("Helppo");
-        helppo.addActionListener(this);
-        keskitaso = new JRadioButton("Keskitaso");
-        keskitaso.addActionListener(this);
-        vaikea = new JRadioButton("Vaikea");
-        vaikea.addActionListener(this);
-        haaste = new JRadioButton("HAASTE");
-        haaste.addActionListener(this);
-        
-        JPanel vaikeustasopaneeli = new JPanel(new GridLayout(4,4));
-                
-        pelimuotopaneeli.add(new JLabel("Valitse vaikeustaso: "));
-        
-        vaikeus.add(helppo);
-        vaikeustasopaneeli.add(helppo);
-        vaikeus.add(keskitaso);
-        vaikeustasopaneeli.add(keskitaso);
-        vaikeus.add(vaikea);
-        vaikeustasopaneeli.add(vaikea);
-        vaikeus.add(haaste);
-        vaikeustasopaneeli.add(haaste);
+        JPanel sekoituskortti = new JPanel(new GridLayout(3,1));
+        sekoituskortti.add(new JLabel("Sekoituskortti peliin?"));
+        sekoitusJoo = new JRadioButton("Joo!");
+        sekoitusJoo.addActionListener(this);
+        sekoituskortti.add(sekoitusJoo);
+        sekoitusEi = new JRadioButton("Ei!");
+        sekoitusEi.addActionListener(this);
+        sekoituskortti.add(sekoitusEi);
         
         alusta.add(pelimuotopaneeli);
         alusta.add(vaikeustasopaneeli);
+        alusta.add(sekoituskortti);
         
         aloita = new JButton("Aloita");
         aloita.addActionListener(this);
@@ -100,6 +78,52 @@ public class Peli extends JFrame implements ActionListener {
 
         alusta.pack();
         alusta.setVisible(true);
+    }
+    
+    private JPanel pelimuotopaneeli(){
+        JPanel pelimuotopaneeli = new JPanel(new GridLayout(4, 4));
+        
+        ButtonGroup peli = new ButtonGroup();
+        
+        jarjestys = new JRadioButton("Järjestys muistipeli");
+        jarjestys.addActionListener(this);
+        peli.add(jarjestys);
+        pari = new JRadioButton("Pari muistipeli");
+        pari.addActionListener(this);
+        peli.add(pari);
+        
+        pelimuotopaneeli.add(new JLabel("Valitse pelimuoto:"));
+        pelimuotopaneeli.add(pari);
+        pelimuotopaneeli.add(jarjestys);
+        
+        return pelimuotopaneeli;
+    }
+    
+    private JPanel vaikeustasopaneeli(){
+        JPanel vaikeustasopaneeli = new JPanel(new GridLayout(5,1));
+        
+        ButtonGroup vaikeus = new ButtonGroup();
+        
+        helppo = new JRadioButton("Helppo");
+        helppo.addActionListener(this);
+        vaikeus.add(helppo);
+        keskitaso = new JRadioButton("Keskitaso");
+        keskitaso.addActionListener(this);
+        vaikeus.add(keskitaso);
+        vaikea = new JRadioButton("Vaikea");
+        vaikea.addActionListener(this);
+        vaikeus.add(vaikea);
+        haaste = new JRadioButton("HAASTE");
+        haaste.addActionListener(this);
+        vaikeus.add(haaste);
+        
+        vaikeustasopaneeli.add(new JLabel("Valitse vaikeustaso: "));
+        vaikeustasopaneeli.add(helppo);
+        vaikeustasopaneeli.add(keskitaso);
+        vaikeustasopaneeli.add(vaikea);
+        vaikeustasopaneeli.add(haaste);
+        
+        return vaikeustasopaneeli;
     }
 
     @Override
@@ -130,8 +154,16 @@ public class Peli extends JFrame implements ActionListener {
             pareja = 10;
         }
         
+        if (e.getSource() == sekoitusJoo) {
+           sekoituskortti = true;
+        }
+        
+        if(e.getSource() == sekoitusEi){
+            sekoituskortti = false;
+        }
+        
         if(e.getSource() == aloita){
-            pelialusta = new Pelialusta(pareja, pelaaPariMuistipeli);
+            pelialusta = new Pelialusta(pareja, pelaaPariMuistipeli, sekoituskortti);
             pelialusta.pelaa();
             
         }
