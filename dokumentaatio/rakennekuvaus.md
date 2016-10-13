@@ -1,4 +1,4 @@
-# Rakennekuvaus
+### Rakennekuvaus
 
 Peli sisältää kortteja (luokka Kortti), joita kääntämällä etsitään pareja tai kortteja oikeassa järjestyksessä. 
 Luokka Korttipakka sisältää kortteja 4-21 kappaletta riippuen pelin vaikeustasosta ja siitä halutaanko peliin mukaan 
