@@ -10,3 +10,5 @@ Harjoitustyö on muistipeli, jossa etsitään joko korteille pareja tai kortteja
 [pit](https://htmlpreview.github.io/?https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/pit/201610061426/index.html)
 
 [Checkstyle](https://htmlpreview.github.io/?https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/site/checkstyle.html)
+
+[Rakennekuvaus](NeanOhjelmoinninHT/dokumentaatio/rakennekuvaus.md)
