@@ -68,19 +68,13 @@ public class Pelialusta extends JFrame implements ActionListener {
         ikkuna.setPreferredSize(new Dimension(1000, 1000));
 
         ikkuna.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //ikkuna.setLayout(new GridLayout(1, 2));
 
-        //yrityksia = new JLabel("Yrityksiä: " + yritykset);
-        //ikkuna.add(yrityksia);
         luoPelilauta();
 
         ikkuna.pack();
         ikkuna.setVisible(true);
     }
 
-    /**
-     * Metodi luo pelilaudalle nappulat.
-     */
     private void luoPelilauta() {
         pelilauta = new Panel();
 
@@ -109,11 +103,6 @@ public class Pelialusta extends JFrame implements ActionListener {
         ikkuna.add(pelilauta);
     }
 
-    /**
-     * Metodi luo tapahtuman, kun kortteja (nappeja) klikataan.
-     *
-     * @param e ActionEvent
-     */
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -201,9 +190,6 @@ public class Pelialusta extends JFrame implements ActionListener {
 
     }
 
-    /**
-     * Metodi asettaa kaikkien löytämättömien korttien arvon piiloon.
-     */
     private void piilotaKaikkiKortitJoitaEiOleLoydetty() {
 
         parit.kaannaKortit();
@@ -231,9 +217,6 @@ public class Pelialusta extends JFrame implements ActionListener {
         }
     }
 
-    /**
-     * Metodi asettaa voittotekstin, kun kaikki kortit on löydetty.
-     */
     private void kaikkiLoytyivat() {
 
         Kysymysalusta kysymysalusta = new Kysymysalusta(true);

@@ -26,7 +26,10 @@ public class PariPakka extends Korttipakka {
     }
 
     /**
-     * Metodi kertoo ovatko käännetyt (kaksi) korttia pari.
+     * Metodi kertoo ovatko käännetyt (kaksi) korttia pari. Jos kortit ovat pari
+     * metodi asettaa kortit löytyneiksi. Käännettyjä kortteja voi olla pelilaudalla
+     * enemmän kuin kaksi, mutta muut ovat löytyneet. Metodi siis selvittää ovatko
+     * kaksi käännettyä, mutta ei löydettyä, korttia pari.
      *
      * @return Totuusarvo, joka kertoo ovatko käännetyt kortit pari.
      */

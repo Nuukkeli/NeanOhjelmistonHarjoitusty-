@@ -56,22 +56,6 @@ public class PariTest {
         }
     }
 
-    /*@Test
-    public void ovatkoPariTunnistaaJosKortitOvatPari() {
-        Kortti eka = new Kortti(1);
-        Kortti toka = new Kortti(1);
-
-        assertEquals(true, pakka.ovatkoPari(eka, toka));
-    }
-
-    @Test
-    public void ovatkoPariTunnistaaJosKortitEivatOlePari() {
-        Kortti eka = new Kortti(10);
-        Kortti toka = new Kortti(11);
-
-        assertEquals(false, pakka.ovatkoPari(eka, toka));
-    }*/
-
     @Test
     public void ovatkoKaannetytPariPalauttaaTrueJosKaannetytOvatPari() {
         Kortti eka = pakka.korttiSijainnilla(1);

@@ -13,7 +13,9 @@ import javax.swing.*;
 
 
 /**
- * Luokka käynnistää pelin. Myöhemmin tekee varmasti muutakin.
+ * Luokka avaa peliasetuksia kysyvän alustan ja käynnistää pelin, kun 
+ * peliasetukset on valittu. Jos asetuksia ei valita, luokka käynnistää 
+ * oletuspelin (2 paria eli 4 kpl kortteja, parimuistipeli, ei sekoituskorttia). 
  */
 public class Kysymysalusta extends JFrame implements ActionListener {
 
@@ -35,7 +37,11 @@ public class Kysymysalusta extends JFrame implements ActionListener {
     
     /**
      * Luokan konstruktori.
-     *
+     * Konstruktori asettaa oletuspeliasetukset siltä varalta, että pelaaja 
+     * aloittaa pelin valitsematta omia peliasetuksia.
+     * 
+     * @param onkoJoPelattu Totuusarvo, joka kertoo onko peliä pelattu jo kierros.
+     * Jos on, kysymysalusta onnittelee voitosta ja kysyy uuden pelin asetuksia.
      */
     public Kysymysalusta(boolean onkoJoPelattu) {
         pareja = 2;
@@ -51,6 +57,11 @@ public class Kysymysalusta extends JFrame implements ActionListener {
         this.kysymysAlusta();
     }
     
+    /**
+     * Metodi luo kysymysalustan. Kysymysalustassa pelaaja saa valita haluaako
+     * hän pari- vai järjestysmuistipelin, vaikeustason ja tuleeko peliin
+     * sekoituskortti.
+     */
     public void kysymysAlusta() {
 
         if (pelattu) {
