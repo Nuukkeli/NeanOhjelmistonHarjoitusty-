@@ -7,7 +7,7 @@ Harjoitustyö on muistipeli, jossa etsitään joko korteille pareja tai kortteja
 
 [tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 
-[pit](https://htmlpreview.github.io/?https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/pit/201610061426/index.html)
+[pit](https://htmlpreview.github.io/?https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/pit/201610141406/index.html)
 
 [Checkstyle](https://htmlpreview.github.io/?https://github.com/Nuukkeli/NeanOhjelmoinninHT/blob/master/dokumentaatio/site/checkstyle.html)
 
