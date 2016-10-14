@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.kortti.Jarjestys.java">muistipeli/neanmuistipeli/kortti/Jarjestys.java</a>
+                  <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.kortti.JarjestysPakka.java">muistipeli/neanmuistipeli/kortti/JarjestysPakka.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.kortti.Kortti.java">muistipeli/neanmuistipeli/kortti/Kortti.java</a>
+                  <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.kortti.PariPakka.java">muistipeli/neanmuistipeli/kortti/PariPakka.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +88,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.peli.Peli.java">muistipeli/neanmuistipeli/peli/Peli.java</a>
+                  <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.peli.Kysymysalusta.java">muistipeli/neanmuistipeli/peli/Kysymysalusta.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.kortti.Kortti.java">muistipeli/neanmuistipeli/kortti/Kortti.java</a>
                 </td>
                 <td>
                   0
@@ -117,20 +131,6 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.PeliMain.java">muistipeli/neanmuistipeli/PeliMain.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#muistipeli.neanmuistipeli.kortti.Pari.java">muistipeli/neanmuistipeli/kortti/Pari.java</a>
                 </td>
                 <td>
                   0
