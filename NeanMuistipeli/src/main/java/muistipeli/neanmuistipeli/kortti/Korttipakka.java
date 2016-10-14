@@ -28,10 +28,13 @@ public class Korttipakka {
     }
 
     /**
-     * Metodi luo korttipakan, eli listan joka sisältää pelin kortit.
+     * Metodi luo korttipakan, eli listan joka sisältää pelin kortit. 
      *
      * @param pareilla Totuusarvo kertoo tuleeko korteille olla parit vai onko
-     * jokaista kortti vain yksi.
+     * jokaista kortti vain yksi. Jos totuusarvo on true, peli on parimuistipeli,
+     * jossa etsitään korteille pareja. Jos arvo on false, peli on 
+     * järjestysmuistipeli, jossa kortit tulee kääntää oikeassa 
+     * suuruusjärjestyksesä. 
      */
     public void luoKorttipakka(boolean pareilla) {
 
@@ -139,7 +142,9 @@ public class Korttipakka {
 
     /**
      * Metodi kertoo ovatko kaikki korttipakan kortit löytyneet, eli palauttaa
-     * totuusarvon true, jos kaikki kortit on löydetty.
+     * totuusarvon true, jos kaikki kortit on löydetty. Sekoituskorttia (arvo 0)
+     * ei tarvitse löytää pelin voittamiseksi, eli peli päättyy kun kaikki muuta
+     * kortit on löydetty.
      *
      * @return Totuusarvo, joka kertoo ovatko kaikki kortit löytyneet.
      */

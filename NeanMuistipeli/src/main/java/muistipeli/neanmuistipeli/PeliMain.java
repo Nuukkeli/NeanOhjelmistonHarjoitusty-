@@ -9,7 +9,7 @@ import muistipeli.neanmuistipeli.peli.*;
 public class PeliMain {
 
     /**
-     * Main luokan konstruktori. 
+     * Main luokka. Käynnistää pelin luomalla kysymysalustan. 
      * 
      * @param args the command line arguments
      */

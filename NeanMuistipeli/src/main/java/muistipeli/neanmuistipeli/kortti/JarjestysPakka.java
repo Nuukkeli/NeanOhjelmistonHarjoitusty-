@@ -33,7 +33,9 @@ public class JarjestysPakka extends Korttipakka {
 
     /**
      * Metodi kertoo onko parametriksi annettu kortti seuraavana
-     * suuruusjärjestyksessä.
+     * suuruusjärjestyksessä. Jos kortti on seuraava suuruusjärjestyksessä
+     * metodi asettaa kortin edelliseksi kortiksi, johon seuraavaa korttia 
+     * verrataan.
      *
      * @param k Kortti, josta halutaan tietää, onko se seuraava
      * suuruusjärjestyksessä.

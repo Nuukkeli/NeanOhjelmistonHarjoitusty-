@@ -5,7 +5,7 @@ package muistipeli.neanmuistipeli.kortti;
  */
 public class Kortti {
 
-    private int arvo; //Alustavasti int, mahdollisesti muuttuu myöhemmin.
+    private int arvo; 
     private boolean kuvaNakyvissa;
     private boolean loydetty;
 
