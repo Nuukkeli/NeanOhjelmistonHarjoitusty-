@@ -56,7 +56,7 @@ public class PariTest {
         }
     }
 
-    @Test
+    /*@Test
     public void ovatkoPariTunnistaaJosKortitOvatPari() {
         Kortti eka = new Kortti(1);
         Kortti toka = new Kortti(1);
@@ -70,7 +70,7 @@ public class PariTest {
         Kortti toka = new Kortti(11);
 
         assertEquals(false, pakka.ovatkoPari(eka, toka));
-    }
+    }*/
 
     @Test
     public void ovatkoKaannetytPariPalauttaaTrueJosKaannetytOvatPari() {

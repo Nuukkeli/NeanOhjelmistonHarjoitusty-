@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package muistipeli.neanmuistipeli.kortti;
 
 import java.util.Collections;
@@ -27,26 +23,6 @@ public class PariPakka extends Korttipakka {
         super(pareja, sekoituskortti);
         
         super.luoKorttipakka(true);
-    }
-
-    /**
-     * Metodi kertoo ovatko parametreiksi annetut kortit pari.
-     *
-     * @param eka Kortti, josta halutaan tietää onko se pari toisen kortin
-     * kanssa.
-     *
-     * @param toka Kortti, josta halutaan tietää onko se pari ensimmäisen kortin
-     * kanssa.
-     *
-     * @return Totuusarvo, joka kertoo ovatko parametreiksi annetut kortit pari.
-     */
-    public boolean ovatkoPari(Kortti eka, Kortti toka) {
-
-        if (eka.arvo() == toka.arvo()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     /**
