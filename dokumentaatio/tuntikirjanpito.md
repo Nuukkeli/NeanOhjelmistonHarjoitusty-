@@ -14,3 +14,6 @@ Päivä | Tunnit | Kuvaus
 05.10.2016 | 1h | Pelin toteutuksen suunnittelua, esimerkiksi miten ohjelmassa valitaan korttimäärä ja pelimuoto
 06.10.2016 | 4h | Testejä, javadoc, luokkakaavion päivitys, sekvenssikaaviot
 11.10.2016 | 1.5h | Alkukyselyn lisäys
+12.10.2016 | 4h | Sekoituskortti peliin, alkukyselyn muokkausta
+13.10.2016 | 0.5h | Rakennekuvaus ja käyttöohjeet
+14.10.2016 | 3h | Suurin osa ajasta käytetty jar-tiedostoon liittyviin ongelmiin, jotka eivät ratkenneet. Lisäksi checkstyle, pit jne
