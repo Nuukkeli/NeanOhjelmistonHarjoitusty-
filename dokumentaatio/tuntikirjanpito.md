@@ -1,3 +1,5 @@
+
+
 ### Tuntikirjanpito
 Päivä | Tunnit | Kuvaus
 ------------|-------|------
@@ -17,3 +19,4 @@ Päivä | Tunnit | Kuvaus
 12.10.2016 | 4h | Sekoituskortti peliin, alkukyselyn muokkausta
 13.10.2016 | 0.5h | Rakennekuvaus ja käyttöohjeet
 14.10.2016 | 3h | Suurin osa ajasta käytetty jar-tiedostoon liittyviin ongelmiin, jotka eivät ratkenneet. Lisäksi checkstyle, pit jne
+15.10.2016 | 0.5h | Toimiva Jar-tiedosto vihdoinkin tehty
